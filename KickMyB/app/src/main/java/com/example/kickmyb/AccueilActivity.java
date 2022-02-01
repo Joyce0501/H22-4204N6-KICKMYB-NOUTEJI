@@ -1,5 +1,6 @@
 package com.example.kickmyb;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -26,6 +27,14 @@ public class AccueilActivity extends AppCompatActivity {
 
         this.initRecycler();
         this.remplirRecycler();
+
+        binding.buttonCreation.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent retour = new Intent(AccueilActivity.this,CreationActivity.class);
+                startActivity(retour);
+            }
+        });
 
     }
 

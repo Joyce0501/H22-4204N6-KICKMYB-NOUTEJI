@@ -23,7 +23,8 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="joyce" />
+            android:hint="joyce"
+            android:minHeight="48dp" />
 
     </LinearLayout>
 
@@ -37,11 +38,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Taper votre mot de passe : " />
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="secret"
-            android:password="true"/>
+            android:minHeight="48dp"
+            android:password="true" />
     </LinearLayout>
 
     <LinearLayout
@@ -54,11 +57,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Veuillez confirmer votre mot de passe : " />
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="secret"
-            android:password="true"/>
+            android:minHeight="48dp"
+            android:password="true" />
     </LinearLayout>
 
     <LinearLayout

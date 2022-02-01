@@ -22,15 +22,19 @@ public class AccueilAdapter extends RecyclerView.Adapter<AccueilAdapter.ViewHold
      */
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
-        public TextView textViewQuestion;
+        public TextView textViewTache;
         public View Image;
+        public TextView textViewTempsEcoule;
+        public TextView textViewDateLimite;
         public LinearLayout linearLayout;
 
         public ViewHolder(LinearLayout view) {
             super(view);
             // Define click listener for the ViewHolder's View
-            textViewQuestion = view.findViewById(R.id.tvtaches);
+            textViewTache = view.findViewById(R.id.tvtaches);
             Image = view.findViewById(R.id.imgbutton);
+            textViewDateLimite = view.findViewById(R.id.deadline);
+            textViewTempsEcoule = view.findViewById(R.id.tempsecoule);
             linearLayout = view;
         }
     }
@@ -57,11 +61,11 @@ public class AccueilAdapter extends RecyclerView.Adapter<AccueilAdapter.ViewHold
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
         Taches tacheactuel = list.get(position);
-        viewHolder.textViewQuestion.setText(tacheactuel.taches);
+        viewHolder.textViewTache.setText(tacheactuel.taches);
         viewHolder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent voter = new Intent(view.getContext(),InscriptionActivity.class);
+                Intent voter = new Intent(view.getContext(),ConsultationActivity.class);
                 view.getContext().startActivity(voter);
             }
         });
@@ -69,7 +73,21 @@ public class AccueilAdapter extends RecyclerView.Adapter<AccueilAdapter.ViewHold
         viewHolder.Image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent results = new Intent(view.getContext(),InscriptionActivity.class);
+                Intent results = new Intent(view.getContext(),ConsultationActivity.class);
+                view.getContext().startActivity(results);
+            }
+        });
+        viewHolder.textViewDateLimite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent results = new Intent(view.getContext(),CreationActivity.class);
+                view.getContext().startActivity(results);
+            }
+        });
+        viewHolder.textViewTempsEcoule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent results = new Intent(view.getContext(),ConsultationActivity.class);
                 view.getContext().startActivity(results);
             }
         });
