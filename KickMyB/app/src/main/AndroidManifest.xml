@@ -13,6 +13,10 @@
             android:exported="false"/>
         <activity android:name=".InscriptionActivity"
             android:exported="false"/>
+        <activity android:name=".ConsultationActivity"
+            android:exported="false"/>
+        <activity android:name=".CreationActivity"
+            android:exported="false"/>
         <activity android:name=".MainActivity"
             android:exported="true" >
             <intent-filter>
