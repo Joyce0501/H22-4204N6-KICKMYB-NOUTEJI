@@ -16,19 +16,27 @@
         android:textAlignment="textStart" />
 
     <EditText
-        android:id="@+id/edit"
+        android:id="@+id/editTache"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:hint="Le nom de la tache"
-        tools:ignore="TouchTargetSizeCheck" />
+        android:hint="Le nom de la tache" />
 
-    <DatePicker
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/TaDate"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp">
+        android:layout_margin="10dp"
+        android:gravity="start"
+        android:text="Date d'échéance"
+        android:textAlignment="textStart" />
 
-    </DatePicker>
+    <EditText
+        android:id="@+id/editDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="Date d'échéance" />
 
     <Button
         android:id="@+id/buttonAccueil"

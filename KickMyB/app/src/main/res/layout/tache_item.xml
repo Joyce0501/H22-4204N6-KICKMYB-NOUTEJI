@@ -25,22 +25,30 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="temps ecoule"
+            android:text="3jours /7"
             android:padding="10dp"/>
+
         <ProgressBar
-            android:id="@+id/imgbutton"
-            android:layout_width="45dp"
-            android:layout_height="50dp"
-            android:padding="10dp"
-            android:layout_gravity="center"/>
+            android:id="@+id/imgButton"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:progress="50"
+            />
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_launcher_foreground"/>
+
         <TextView
             android:id="@+id/deadline"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="date limite"
+            android:text="28 fevrier 2022"
             android:padding="10dp"/>
-
 
    </LinearLayout>
 
