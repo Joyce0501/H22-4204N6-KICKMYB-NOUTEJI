@@ -37,10 +37,10 @@
             android:progress="50"
             />
 
-        <ImageButton
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/ic_launcher_foreground"/>
+<!--        <ImageButton-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:src="@drawable/ic_launcher_foreground"/>-->
 
         <TextView
             android:id="@+id/deadline"
