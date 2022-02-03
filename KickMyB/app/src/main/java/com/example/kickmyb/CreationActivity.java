@@ -3,14 +3,19 @@ package com.example.kickmyb;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
 import com.example.kickmyb.databinding.ActivityCreationBinding;
+import com.google.android.material.navigation.NavigationView;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -67,6 +72,30 @@ public class CreationActivity extends AppCompatActivity {
             public void onClick(View view) {
                 new DatePickerDialog(CreationActivity.this,date,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),
                         calendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+
+        NavigationView nv = binding.navView;
+        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if (R.id.nav_item_one == item.getItemId())
+                {
+                   Intent retour = new Intent(CreationActivity.this,AccueilActivity.class);
+                   startActivity(retour);
+
+                }
+                else if(R.id.nav_item_two == item.getItemId())
+                {
+                    Intent retour = new Intent(CreationActivity.this,CreationActivity.class);
+                    startActivity(retour);
+                }
+                else if(R.id.nav_item_three==item.getItemId())
+                {
+                    Intent retour = new Intent(CreationActivity.this,MainActivity.class);
+                    startActivity(retour);
+                }
+                return true;
             }
         });
 

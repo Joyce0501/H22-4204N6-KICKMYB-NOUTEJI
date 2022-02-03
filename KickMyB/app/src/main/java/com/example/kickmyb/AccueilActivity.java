@@ -2,14 +2,19 @@ package com.example.kickmyb;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kickmyb.databinding.ActivityAccueilBinding;
+import com.google.android.material.navigation.NavigationView;
 
 public class AccueilActivity extends AppCompatActivity {
     private ActivityAccueilBinding binding;
@@ -36,6 +41,30 @@ public class AccueilActivity extends AppCompatActivity {
             }
         });
 
+        NavigationView nv = binding.navView;
+        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if (R.id.nav_item_one == item.getItemId())
+                {
+
+                    Intent retour = new Intent(AccueilActivity.this,AccueilActivity.class);
+                    startActivity(retour);
+
+                }
+                else if(R.id.nav_item_two == item.getItemId())
+                {
+                    Intent retour = new Intent(AccueilActivity.this,CreationActivity.class);
+                    startActivity(retour);
+                }
+                else if(R.id.nav_item_three==item.getItemId())
+                {
+                    Intent retour = new Intent(AccueilActivity.this,MainActivity.class);
+                    startActivity(retour);
+                }
+                return true;
+            }
+        });
     }
 
     public void initRecycler()
