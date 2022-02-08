@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_weight="4"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+   >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,13 +19,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Taper votre nom : " />
+            android:text="Taper votre nom : "
+            android:layout_margin="10dp"
+            android:textColor="@color/blue"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="joyce"
-            android:minHeight="48dp" />
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/blue"/>
 
     </LinearLayout>
 
@@ -37,13 +41,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Taper votre mot de passe : " />
+            android:text="Taper votre mot de passe : "
+            android:layout_margin="10dp"
+            android:textColor="@color/blue"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="secret"
-            android:minHeight="48dp"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/blue"
             android:password="true" />
     </LinearLayout>
 
@@ -56,13 +63,18 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Veuillez confirmer votre mot de passe : " />
+            android:text="Veuillez confirmer votre mot de passe : "
+            android:textColor="@color/blue"
+            android:layout_margin="10dp"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="secret"
+            android:backgroundTint="@color/blue"
             android:minHeight="48dp"
+            android:textColor="@color/blue"
+            android:layout_margin="10dp"
             android:password="true" />
     </LinearLayout>
 
@@ -78,6 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Connexion"
+            android:backgroundTint="@color/blue"
             android:layout_margin="10dp"/>
 
     </LinearLayout>

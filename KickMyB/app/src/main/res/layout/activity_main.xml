@@ -18,12 +18,18 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tapez votre nom : " />
+            android:text="Tapez votre nom : "
+            android:layout_margin="10dp"
+            android:textColor="@color/blue"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="joyce" />
+            android:hint="joyce"
+            android:layout_margin="10dp"
+            android:textColor="#8cb9dc"
+            android:backgroundTint="@color/blue"
+           />
 
     </LinearLayout>
 
@@ -36,11 +42,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColor="@color/blue"
             android:text="Taper votre mot de passe : " />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="secret"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/blue"
             android:password="true"/>
     </LinearLayout>
 
@@ -56,13 +66,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Inscription"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/blue"
+          />
+
         <Button
             android:id="@+id/accueil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/blue"
             android:text="Connexion"
-            android:layout_margin="10dp"/>
+           />
 
     </LinearLayout>
 
