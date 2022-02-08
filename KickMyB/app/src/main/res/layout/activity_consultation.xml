@@ -10,13 +10,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <TextView
         android:id="@+id/informations"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:gravity="start"
-        android:text="Informations sur la tache"
+        android:text="Consultation de la tache"
         android:textSize="30dp"
         />
 
@@ -67,6 +68,7 @@
             android:text="- Temps écoulé : 3 jours/7" />
 
     </LinearLayout>
+
 </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView

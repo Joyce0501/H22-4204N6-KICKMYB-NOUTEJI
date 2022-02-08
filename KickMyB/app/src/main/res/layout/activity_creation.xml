@@ -14,43 +14,69 @@
     android:orientation="vertical"
     android:padding="10dp">
     <TextView
-        android:id="@+id/Tatache"
+        android:id="@+id/informations"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:gravity="start"
-        android:text="Nom de la tache"
-        android:textAlignment="textStart" />
+        android:text="Creation d'une tache"
+        android:textSize="30dp"
+        />
 
-    <EditText
-        android:id="@+id/editTache"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:hint="Le nom de la tache" />
+        <TextView
+            android:id="@+id/Tatache"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Nom de la tache"
+            android:textAlignment="textStart" />
 
-    <TextView
-        android:id="@+id/TaDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:gravity="start"
-        android:text="Date d'échéance"
-        android:textAlignment="textStart" />
+        <EditText
+            android:id="@+id/editTache"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="Le nom de la tache" />
 
-    <EditText
-        android:id="@+id/editDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:hint="Double-cliquer sur l'espace pour entrer la date d'échéance" />
+        <TextView
+            android:id="@+id/TaDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="start"
+            android:text="Date d'échéance"
+            android:textAlignment="textStart" />
 
-    <Button
-        android:id="@+id/buttonAccueil"
+        <EditText
+            android:id="@+id/editDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="Double-cliquer sur l'espace pour entrer la date d'échéance" />
+
+        <Button
+            android:id="@+id/buttonAccueil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Accueil" />
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Accueil" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+
 </LinearLayout>
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navView"

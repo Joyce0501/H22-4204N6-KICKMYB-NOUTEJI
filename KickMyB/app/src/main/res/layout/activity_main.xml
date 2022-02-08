@@ -9,6 +9,16 @@
     tools:context=".MainActivity"
     >
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:text="Connectez-vous a votre compte"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:textSize="20dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -27,6 +37,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_baseline_perm_identity_24"
             android:hint="joyce"
             android:layout_margin="10dp"
             android:textColor="@color/black"
@@ -50,6 +61,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_baseline_lock_24"
             android:hint="secret"
             android:layout_margin="10dp"
             android:textColor="@color/black"
