@@ -2,10 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group>
     <item android:id="@+id/nav_item_one"
+        android:icon="@drawable/ic_baseline_home_24"
         android:title="Accueil" />
     <item android:id="@+id/nav_item_two"
+        android:icon="@drawable/ic_baseline_add_24"
         android:title="Ajout de tache" />
     <item android:id="@+id/nav_item_three"
+        android:icon="@drawable/ic_baseline_transit_enterexit_24"
         android:title="Deconnexion" />
 </group>
 </menu>

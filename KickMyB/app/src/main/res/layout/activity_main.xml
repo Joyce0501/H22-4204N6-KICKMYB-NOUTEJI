@@ -6,29 +6,31 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_weight="4"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_weight="1"
-        android:padding="10dp">
+        android:padding="10dp"
+    >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tapez votre nom : "
             android:layout_margin="10dp"
-            android:textColor="@color/blue"/>
+            android:textColor="@color/black"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="joyce"
             android:layout_margin="10dp"
-            android:textColor="#8cb9dc"
-            android:backgroundTint="@color/blue"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/black"
            />
 
     </LinearLayout>
@@ -43,14 +45,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:textColor="@color/blue"
+            android:textColor="@color/black"
             android:text="Taper votre mot de passe : " />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="secret"
             android:layout_margin="10dp"
-            android:backgroundTint="@color/blue"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/black"
             android:password="true"/>
     </LinearLayout>
 

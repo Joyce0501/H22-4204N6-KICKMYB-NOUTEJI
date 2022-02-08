@@ -65,32 +65,32 @@ public class AccueilAdapter extends RecyclerView.Adapter<AccueilAdapter.ViewHold
         viewHolder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent voter = new Intent(view.getContext(),ConsultationActivity.class);
-                view.getContext().startActivity(voter);
+                Intent consulter = new Intent(view.getContext(),ConsultationActivity.class);
+                view.getContext().startActivity(consulter);
             }
         });
 
-        viewHolder.Image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent results = new Intent(view.getContext(),ConsultationActivity.class);
-                view.getContext().startActivity(results);
-            }
-        });
-        viewHolder.textViewDateLimite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent results = new Intent(view.getContext(),CreationActivity.class);
-                view.getContext().startActivity(results);
-            }
-        });
-        viewHolder.textViewTempsEcoule.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent results = new Intent(view.getContext(),ConsultationActivity.class);
-                view.getContext().startActivity(results);
-            }
-        });
+//        viewHolder.Image.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent results = new Intent(view.getContext(),ConsultationActivity.class);
+//                view.getContext().startActivity(results);
+//            }
+//        });
+//        viewHolder.textViewDateLimite.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent results = new Intent(view.getContext(),ConsultationActivity.class);
+//                view.getContext().startActivity(results);
+//            }
+//        });
+//        viewHolder.textViewTempsEcoule.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent results = new Intent(view.getContext(),ConsultationActivity.class);
+//                view.getContext().startActivity(results);
+//            }
+//        });
 
     }
 
