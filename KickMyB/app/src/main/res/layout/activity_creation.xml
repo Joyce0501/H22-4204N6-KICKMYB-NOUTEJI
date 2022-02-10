@@ -31,6 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:textSize="15dp"
                 android:text="Nom de la tache"
                 android:textAlignment="textStart" />
 
@@ -47,6 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:gravity="start"
+                android:textSize="15dp"
                 android:text="Date d'échéance"
                 android:textAlignment="textStart" />
 

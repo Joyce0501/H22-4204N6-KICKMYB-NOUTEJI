@@ -48,6 +48,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:gravity="start"
+                    android:textSize="15dp"
                     android:text="- Date d'échéance : 23 fevrier 2022" />
 
                 <TextView
@@ -56,6 +57,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:gravity="start"
+                    android:textSize="15dp"
                     android:text="- Pourcentage d'avancement : 30%" />
                 <TextView
                     android:id="@+id/avancement"
@@ -63,6 +65,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:gravity="start"
+                    android:textSize="15dp"
                     android:text="- Modifier le pourcentage grace a cette barre : " />
 
                 <SeekBar
@@ -77,6 +80,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:gravity="start"
+                    android:textSize="15dp"
                     android:text="- Temps écoulé : 3 jours/7" />
 
             </LinearLayout>

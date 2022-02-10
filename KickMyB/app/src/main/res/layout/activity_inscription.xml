@@ -10,7 +10,7 @@
    >
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="385dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:gravity="center_horizontal"
@@ -29,8 +29,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Taper votre nom : "
+            android:text="Inscrivez votre nom : "
             android:layout_margin="10dp"
+            android:textSize="15dp"
             android:textColor="@color/black"/>
 
         <EditText
@@ -52,8 +53,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Taper votre mot de passe : "
+            android:text="Inscrivez votre mot de passe : "
             android:layout_margin="10dp"
+            android:textSize="15dp"
             android:textColor="@color/black"/>
 
         <EditText
@@ -76,6 +78,7 @@
             android:layout_height="wrap_content"
             android:text="Veuillez confirmer votre mot de passe : "
             android:textColor="@color/black"
+            android:textSize="15dp"
             android:layout_margin="10dp"/>
 
         <EditText

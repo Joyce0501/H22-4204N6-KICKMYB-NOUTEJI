@@ -30,8 +30,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tapez votre nom : "
+            android:text="Inscrivez votre nom : "
             android:layout_margin="10dp"
+            android:textSize="15dp"
             android:textColor="@color/black"/>
 
         <EditText
@@ -57,7 +58,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:textColor="@color/black"
-            android:text="Taper votre mot de passe : " />
+            android:textSize="15dp"
+            android:text="Inscrivez votre mot de passe : " />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
