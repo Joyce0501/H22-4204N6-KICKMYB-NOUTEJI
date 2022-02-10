@@ -6,70 +6,84 @@
     android:layout_height="match_parent"
     android:id="@+id/drawerlayout"
     android:orientation="vertical">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/informations"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:gravity="start"
-        android:text="Consultation de la tache"
-        android:textSize="30dp"
-        />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/editTache"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Tache 1"
-        android:textSize="20dp"
-        android:gravity="center"
-        android:hint="Le nom de la tache" />
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="10dp">
-        <TextView
-            android:id="@+id/infoDate"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:gravity="start"
-            android:text="- Date d'échéance : 23 fevrier 2022" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/infoPourcentage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:gravity="start"
-            android:text="- Pourcentage d'avancement : 30%" />
+            <TextView
+                android:id="@+id/informations"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center_horizontal"
+                android:text="Consultation de la tache"
+                android:textSize="30dp"
+                />
 
-        <SeekBar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="30dp">
-        </SeekBar>
+            <TextView
+                android:id="@+id/editTache"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Tache 1"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:hint="Le nom de la tache" />
 
-        <TextView
-            android:id="@+id/infoTemps"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:gravity="start"
-            android:text="- Temps écoulé : 3 jours/7" />
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp">
+                <TextView
+                    android:id="@+id/infoDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="start"
+                    android:text="- Date d'échéance : 23 fevrier 2022" />
 
-</LinearLayout>
+                <TextView
+                    android:id="@+id/infoPourcentage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="start"
+                    android:text="- Pourcentage d'avancement : 30%" />
+                <TextView
+                    android:id="@+id/avancement"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="start"
+                    android:text="- Modifier le pourcentage grace a cette barre : " />
+
+                <SeekBar
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="30dp">
+                </SeekBar>
+
+                <TextView
+                    android:id="@+id/infoTemps"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="start"
+                    android:text="- Temps écoulé : 3 jours/7" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navView"

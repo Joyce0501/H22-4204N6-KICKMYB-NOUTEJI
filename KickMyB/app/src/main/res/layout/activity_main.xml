@@ -16,8 +16,8 @@
         android:padding="10dp"
         android:text="Connectez-vous a votre compte"
         android:textColor="@color/black"
-        android:textAlignment="center"
-        android:textSize="20dp" />
+        android:gravity="center_horizontal"
+        android:textSize="30dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
