@@ -22,7 +22,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:gravity="center_horizontal"
-                android:text="Consultation de la tache"
+                android:text="Consultation de la tâche"
+                android:textColor="@color/black"
                 android:textSize="30dp"
                 />
 
@@ -31,7 +32,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="Tache 1"
+                android:textColor="@color/black"
+                android:text="Tâche 1"
                 android:textSize="20dp"
                 android:gravity="center"
                 android:hint="Le nom de la tache" />
@@ -49,6 +51,7 @@
                     android:layout_margin="10dp"
                     android:gravity="start"
                     android:textSize="15dp"
+                    android:textColor="@color/black"
                     android:text="- Date d'échéance : 23 fevrier 2022" />
 
                 <TextView
@@ -58,6 +61,7 @@
                     android:layout_margin="10dp"
                     android:gravity="start"
                     android:textSize="15dp"
+                    android:textColor="@color/black"
                     android:text="- Pourcentage d'avancement : 30%" />
                 <TextView
                     android:id="@+id/avancement"
@@ -66,7 +70,8 @@
                     android:layout_margin="10dp"
                     android:gravity="start"
                     android:textSize="15dp"
-                    android:text="- Modifier le pourcentage grace a cette barre : " />
+                    android:textColor="@color/black"
+                    android:text="- Modifiez le pourcentage grâce à cette barre : " />
 
                 <SeekBar
                     android:layout_width="match_parent"
@@ -81,6 +86,7 @@
                     android:layout_margin="10dp"
                     android:gravity="start"
                     android:textSize="15dp"
+                    android:textColor="@color/black"
                     android:text="- Temps écoulé : 3 jours/7" />
 
             </LinearLayout>

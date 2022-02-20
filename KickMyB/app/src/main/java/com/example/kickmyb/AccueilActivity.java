@@ -126,7 +126,7 @@ public class AccueilActivity extends AppCompatActivity {
         for(int i = 1; i <= 200; i++)
         {
             Taches t = new Taches();
-            t.taches = "Tache " + i;
+            t.taches = "Tâche " + i;
             adapter.list.add(t);
         }
         adapter.notifyDataSetChanged();

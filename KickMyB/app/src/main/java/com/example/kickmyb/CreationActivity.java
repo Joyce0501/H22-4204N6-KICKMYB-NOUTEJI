@@ -37,7 +37,7 @@ public class CreationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setTitle("Creation");
+        setTitle("Création");
 
         binding = ActivityCreationBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();

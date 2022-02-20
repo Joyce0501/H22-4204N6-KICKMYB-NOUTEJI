@@ -22,7 +22,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:gravity="center_horizontal"
-                android:text="Creation d'une tache"
+                android:textColor="@color/black"
+                android:text="Création d'une tâche"
                 android:textSize="30dp"
                 />
 
@@ -32,7 +33,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:textSize="15dp"
-                android:text="Nom de la tache"
+                android:textColor="@color/black"
+                android:text="Nom de la tâche"
                 android:textAlignment="textStart" />
 
             <EditText
@@ -40,7 +42,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:hint="Le nom de la tache" />
+                android:textColor="@color/black"
+                android:hint="Le nom de la tâche" />
 
             <TextView
                 android:id="@+id/TaDate"
@@ -49,6 +52,7 @@
                 android:layout_margin="10dp"
                 android:gravity="start"
                 android:textSize="15dp"
+                android:textColor="@color/black"
                 android:text="Date d'échéance"
                 android:textAlignment="textStart" />
 

@@ -14,7 +14,8 @@
             android:id="@+id/deadline"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="28 fevrier 2022"
+            android:textColor="@color/black"
+            android:text="22 fevrier 2022"
             android:padding="10dp"
             android:gravity="center"
             />
@@ -22,6 +23,7 @@
         <TextView
             android:id="@+id/tvtaches"
             android:layout_width="0dp"
+            android:textColor="@color/black"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
@@ -39,6 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:textColor="@color/black"
                 android:text="3jours /7"
                 android:padding="10dp"/>
 
@@ -55,6 +58,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:textColor="@color/black"
                 android:text="50%"
                 android:layout_gravity="center_horizontal"
                 android:padding="10dp"/>
