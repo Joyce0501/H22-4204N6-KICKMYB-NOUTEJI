@@ -20,6 +20,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.kickmyb.databinding.ActivityAccueilBinding;
 import com.google.android.material.navigation.NavigationView;
 
+import org.kickmyb.transfer.AddTaskRequest;
+
 public class AccueilActivity extends AppCompatActivity {
     private ActivityAccueilBinding binding;
     private ActionBarDrawerToggle abToggle;
@@ -30,6 +32,7 @@ public class AccueilActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setTitle("Accueil");
+
 
         binding = ActivityAccueilBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();

@@ -39,6 +39,7 @@
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/ic_baseline_perm_identity_24"
             android:hint="joyce"
+            android:id="@+id/inscriptionname"
             android:layout_margin="10dp"
             android:backgroundTint="@color/black"/>
 
@@ -64,6 +65,7 @@
             android:drawableStart="@drawable/ic_baseline_lock_24"
             android:hint="secret"
             android:layout_margin="10dp"
+            android:id="@+id/inscriptionpassword"
             android:password="true" />
     </LinearLayout>
 
