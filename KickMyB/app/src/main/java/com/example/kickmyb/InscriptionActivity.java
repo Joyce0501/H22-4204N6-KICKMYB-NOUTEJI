@@ -42,7 +42,6 @@ public class InscriptionActivity extends AppCompatActivity {
 
         });
 
-
     }
 
     public void createUser() {
@@ -58,6 +57,7 @@ public class InscriptionActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<SigninResponse> call, Throwable t) {
+
                 Log.i("ALLO","non");
             }
         });

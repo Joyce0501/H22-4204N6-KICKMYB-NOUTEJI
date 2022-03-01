@@ -18,7 +18,6 @@ public class RetrofitUtil {
 
         Service service = retrofit.create(Service.class);
         return service;
-
     }
 
 }

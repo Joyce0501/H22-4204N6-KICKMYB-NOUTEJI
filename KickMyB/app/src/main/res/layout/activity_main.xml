@@ -40,6 +40,7 @@
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/ic_baseline_perm_identity_24"
             android:hint="joyce"
+            android:id="@+id/connexionname"
             android:layout_margin="10dp"
             android:textColor="@color/black"
             android:backgroundTint="@color/black"
@@ -66,6 +67,7 @@
             android:drawableStart="@drawable/ic_baseline_lock_24"
             android:hint="secret"
             android:layout_margin="10dp"
+            android:id="@+id/connexionpassword"
             android:textColor="@color/black"
             android:backgroundTint="@color/black"
             android:password="true"/>
