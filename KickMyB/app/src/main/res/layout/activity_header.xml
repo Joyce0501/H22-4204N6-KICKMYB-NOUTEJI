@@ -5,12 +5,12 @@
     android:background="@color/white">
 
     <TextView
-        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_margin="10dp"
         android:drawableStart="@drawable/ic_baseline_perm_identity_24"
         android:text="Nom d'utilisateur"
+        android:id="@+id/username"
         android:textColor="@color/black" />
 </LinearLayout>

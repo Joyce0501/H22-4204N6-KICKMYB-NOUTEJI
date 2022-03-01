@@ -36,7 +36,8 @@ public class CreationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_creation);
+        setContentView(R.layout.activity_header);
         setTitle("Création");
 
         binding = ActivityCreationBinding.inflate(getLayoutInflater());
@@ -50,6 +51,7 @@ public class CreationActivity extends AppCompatActivity {
                 startActivity(retour);
             }
         });
+
 
         dp1 = findViewById(R.id.editDate);
         Calendar calendar = Calendar.getInstance();

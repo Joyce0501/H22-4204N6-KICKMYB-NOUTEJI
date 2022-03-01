@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -36,8 +37,6 @@ public class InscriptionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 createUser();
-                Intent retour = new Intent(InscriptionActivity.this,MainActivity.class);
-                startActivity(retour);
             }
 
         });
@@ -52,6 +51,16 @@ public class InscriptionActivity extends AppCompatActivity {
         RetrofitUtil.get().inscription(signup).enqueue(new Callback<SigninResponse>() {
             @Override
             public void onResponse(Call<SigninResponse> call, Response<SigninResponse> response) {
+                if(response.isSuccessful())
+                {
+                    Intent retour = new Intent(InscriptionActivity.this,MainActivity.class);
+                    startActivity(retour);
+                }
+                else
+                {
+                        Toast.makeText(InscriptionActivity.this, "Pas possible", Toast.LENGTH_SHORT).show();
+
+                }
                 Log.i("ALLO","oK");
             }
 
