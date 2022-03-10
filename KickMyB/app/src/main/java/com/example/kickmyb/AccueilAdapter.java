@@ -92,6 +92,7 @@ public class AccueilAdapter extends RecyclerView.Adapter<AccueilAdapter.ViewHold
 //            }
 //        });
 
+
     }
 
 

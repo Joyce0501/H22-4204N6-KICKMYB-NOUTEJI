@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,9 +19,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kickmyb.databinding.ActivityAccueilBinding;
+import com.example.kickmyb.http.RetrofitUtil;
 import com.google.android.material.navigation.NavigationView;
 
 import org.kickmyb.transfer.AddTaskRequest;
+import org.kickmyb.transfer.SigninRequest;
+
+import java.util.Date;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class AccueilActivity extends AppCompatActivity {
     private ActivityAccueilBinding binding;
@@ -30,9 +39,8 @@ public class AccueilActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.activity_main);
         setTitle("Accueil");
-
 
         binding = ActivityAccueilBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
@@ -41,13 +49,17 @@ public class AccueilActivity extends AppCompatActivity {
         this.initRecycler();
         this.remplirRecycler();
 
+        editNom();
+
         binding.buttonCreation.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 Intent retour = new Intent(AccueilActivity.this,CreationActivity.class);
                 startActivity(retour);
+
             }
         });
+
 
         NavigationView nv = binding.navView;
         DrawerLayout dl = binding.drawerlayout;
@@ -82,8 +94,7 @@ public class AccueilActivity extends AppCompatActivity {
                 }
                 else if(R.id.nav_item_three==item.getItemId())
                 {
-                    Intent retour = new Intent(AccueilActivity.this,MainActivity.class);
-                    startActivity(retour);
+                    deconnexion();
                 }
                 return true;
             }
@@ -110,6 +121,8 @@ public class AccueilActivity extends AppCompatActivity {
 
     }
 
+
+
     public void initRecycler()
     {
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
@@ -133,5 +146,32 @@ public class AccueilActivity extends AppCompatActivity {
             adapter.list.add(t);
         }
         adapter.notifyDataSetChanged();
+    }
+
+    public void editNom(){
+        View headerView = binding.navView.getHeaderView(0);
+        TextView text = (TextView)headerView.findViewById(R.id.username);
+        text.setText(SingletonNom.leNom);
+    }
+
+    public void deconnexion() {
+        RetrofitUtil.get().deconnexion().enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                if(response.isSuccessful()){
+                    Toast.makeText(AccueilActivity.this, "Serveur recu", Toast.LENGTH_SHORT).show();
+                     Intent retour = new Intent(AccueilActivity.this,MainActivity.class);
+                    startActivity(retour);
+                }
+                else{
+                    Toast.makeText(AccueilActivity.this, "Ouch", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                Toast.makeText(AccueilActivity.this, "Ouch Serveur", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

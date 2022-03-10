@@ -1,5 +1,6 @@
 package com.example.kickmyb.http;
 
+import org.kickmyb.transfer.AddTaskRequest;
 import org.kickmyb.transfer.SigninRequest;
 import org.kickmyb.transfer.SigninResponse;
 import org.kickmyb.transfer.SignupRequest;
@@ -20,4 +21,7 @@ public interface Service {
 
     @POST("/api/id/signout")
     Call<String> deconnexion ();
+
+    @POST("/api/add")
+    Call<String> ajoutTache(@Body AddTaskRequest req);
 }

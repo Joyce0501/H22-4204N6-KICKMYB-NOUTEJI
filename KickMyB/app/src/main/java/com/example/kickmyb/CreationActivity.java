@@ -19,13 +19,20 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 
 import com.example.kickmyb.databinding.ActivityCreationBinding;
+import com.example.kickmyb.http.RetrofitUtil;
 import com.google.android.material.navigation.NavigationView;
+
+import org.kickmyb.transfer.AddTaskRequest;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class CreationActivity extends AppCompatActivity {
     private ActivityCreationBinding binding;
@@ -49,6 +56,7 @@ public class CreationActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent retour = new Intent(CreationActivity.this,AccueilActivity.class);
                 startActivity(retour);
+                ajoutTache();
             }
         });
 
@@ -114,8 +122,7 @@ public class CreationActivity extends AppCompatActivity {
                 }
                 else if(R.id.nav_item_three==item.getItemId())
                 {
-                    Intent retour = new Intent(CreationActivity.this,MainActivity.class);
-                    startActivity(retour);
+                    deconnexion();
                 }
                 return true;
             }
@@ -141,6 +148,49 @@ public class CreationActivity extends AppCompatActivity {
         abToggle.onConfigurationChanged(newConfig);
         super.onConfigurationChanged(newConfig);
 
+    }
+    public void deconnexion() {
+        RetrofitUtil.get().deconnexion().enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                if(response.isSuccessful()){
+                    Toast.makeText(CreationActivity.this, "Serveur recu", Toast.LENGTH_SHORT).show();
+                    Intent retour = new Intent(CreationActivity.this,MainActivity.class);
+                    startActivity(retour);
+                }
+                else{
+                    Toast.makeText(CreationActivity.this, "Ouch", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                Toast.makeText(CreationActivity.this, "Ouch Serveur", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void ajoutTache(){
+        AddTaskRequest add = new AddTaskRequest();
+        add.name = "laver mes chaussures";
+        add.deadline = new Date();
+
+        RetrofitUtil.get().ajoutTache(add).enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                if(response.isSuccessful()){
+                    Toast.makeText(CreationActivity.this, "Serveur recu", Toast.LENGTH_SHORT).show();
+                }
+                else{
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                Toast.makeText(CreationActivity.this, "Ouch Serveur", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }

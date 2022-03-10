@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.kickmyb.databinding.ActivityHeaderBinding;
@@ -16,6 +17,8 @@ import com.example.kickmyb.http.RetrofitUtil;
 import org.kickmyb.transfer.SigninRequest;
 import org.kickmyb.transfer.SigninResponse;
 import org.kickmyb.transfer.SignupRequest;
+
+import java.text.BreakIterator;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -35,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+
+
+
 
         binding.accueil.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -70,8 +76,6 @@ public class MainActivity extends AppCompatActivity {
                     Intent accueil = new Intent(MainActivity.this,AccueilActivity.class);
                     startActivity(accueil);
                     SingletonNom.leNom = response.body().username;
-                    //String editValue = binding.connexionname.getText().toString();
-                     binding2.username.setText( SingletonNom.leNom);
                 }
                 else {
                     Toast.makeText(MainActivity.this, "Ouch", Toast.LENGTH_SHORT).show();
