@@ -9,7 +9,10 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class AccueilAdapter extends RecyclerView.Adapter<AccueilAdapter.ViewHolder>{
@@ -32,8 +35,9 @@ public class AccueilAdapter extends RecyclerView.Adapter<AccueilAdapter.ViewHold
             super(view);
             // Define click listener for the ViewHolder's View
             textViewTache = view.findViewById(R.id.tvtaches);
-            Image = view.findViewById(R.id.imgButton);
             textViewDateLimite = view.findViewById(R.id.deadline);
+
+            Image = view.findViewById(R.id.imgButton);
             textViewTempsEcoule = view.findViewById(R.id.tempsecoule);
             linearLayout = view;
         }
@@ -61,7 +65,11 @@ public class AccueilAdapter extends RecyclerView.Adapter<AccueilAdapter.ViewHold
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
         Taches tacheactuel = list.get(position);
+        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yy");
+     //   Date date = simpleDateFormat.parse();
+
         viewHolder.textViewTache.setText(tacheactuel.taches);
+      //  viewHolder.textViewDateLimite.setText(tacheactuel.deadline.parse);
         viewHolder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

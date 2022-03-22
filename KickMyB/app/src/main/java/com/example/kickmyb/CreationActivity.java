@@ -25,6 +25,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import org.kickmyb.transfer.AddTaskRequest;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Calendar;
@@ -181,26 +182,36 @@ public class CreationActivity extends AppCompatActivity {
 
     public void ajoutTache(){
 
-        AddTaskRequest add = new AddTaskRequest();
-        add.name = "laver mes chaussures";
-        add.deadline = new Date();
+        String pattern = "MM/dd/yy";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        Date aujourd = new Date();
+        try {
+            Date date = simpleDateFormat.parse(binding.editDate.getText().toString());
+            AddTaskRequest add = new AddTaskRequest();
+            add.name = binding.editTache.getText().toString();
+            add.deadline = date;
 
-        RetrofitUtil.get().ajoutTache(add).enqueue(new Callback<String>() {
-            @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                if(response.isSuccessful()){
-                    Toast.makeText(CreationActivity.this, "Serveur recu", Toast.LENGTH_SHORT).show();
+            RetrofitUtil.get().ajoutTache(add).enqueue(new Callback<String>() {
+                @Override
+                public void onResponse(Call<String> call, Response<String> response) {
+                    if(response.isSuccessful()){
+                        Toast.makeText(CreationActivity.this, "Serveur recu", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+
+                    }
                 }
-                else{
 
+                @Override
+                public void onFailure(Call<String> call, Throwable t) {
+                    Toast.makeText(CreationActivity.this, "Ouch Serveur", Toast.LENGTH_SHORT).show();
                 }
-            }
+            });
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
-            @Override
-            public void onFailure(Call<String> call, Throwable t) {
-                Toast.makeText(CreationActivity.this, "Ouch Serveur", Toast.LENGTH_SHORT).show();
-            }
-        });
+
     }
 
 }

@@ -1,6 +1,8 @@
 package com.example.kickmyb.http;
 
 
+import org.kickmyb.CustomGson;
+
 import okhttp3.CookieJar;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -14,14 +16,12 @@ public class RetrofitUtil {
     private static Service instance;
 
 
-
-
     public static Service get() {
 
         if(instance == null){
             Retrofit retrofit = new Retrofit.Builder()
                     .addConverterFactory(ScalarsConverterFactory.create())
-                    .addConverterFactory(GsonConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create(CustomGson.getIt()))
                     .baseUrl("http://10.0.2.2:8080/")
                     .client(client())
                     .build();

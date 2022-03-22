@@ -23,9 +23,11 @@ import com.example.kickmyb.http.RetrofitUtil;
 import com.google.android.material.navigation.NavigationView;
 
 import org.kickmyb.transfer.AddTaskRequest;
+import org.kickmyb.transfer.HomeItemResponse;
 import org.kickmyb.transfer.SigninRequest;
 
 import java.util.Date;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -48,6 +50,7 @@ public class AccueilActivity extends AppCompatActivity {
 
         this.initRecycler();
         this.remplirRecycler();
+        obtientliste();
 
         editNom();
 
@@ -174,4 +177,29 @@ public class AccueilActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void obtientliste(){
+
+        RetrofitUtil.get().listeTache().enqueue(new Callback<List<HomeItemResponse>>() {
+            @Override
+            public void onResponse(Call<List<HomeItemResponse>> call, Response<List<HomeItemResponse>> response) {
+                if(response.isSuccessful()){
+                    Toast.makeText(AccueilActivity.this, "Serveur recu", Toast.LENGTH_SHORT).show();
+                    for(int i = 0; i < response.body().size(); i++){
+                        Taches t = new Taches();
+                    }
+                }
+                else{
+                    Toast.makeText(AccueilActivity.this, "Ouch", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<HomeItemResponse>> call, Throwable t) {
+                Toast.makeText(AccueilActivity.this, "Ouch Serveur", Toast.LENGTH_SHORT).show();
+            }
+        });
+        adapter.notifyDataSetChanged();
+    }
+
 }
