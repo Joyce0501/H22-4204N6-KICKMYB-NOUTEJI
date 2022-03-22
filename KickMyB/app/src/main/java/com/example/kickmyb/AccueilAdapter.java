@@ -29,6 +29,7 @@ public class AccueilAdapter extends RecyclerView.Adapter<AccueilAdapter.ViewHold
         public View Image;
         public TextView textViewTempsEcoule;
         public TextView textViewDateLimite;
+        public TextView textViewPourcentageFait;
         public LinearLayout linearLayout;
 
         public ViewHolder(LinearLayout view) {
@@ -36,9 +37,11 @@ public class AccueilAdapter extends RecyclerView.Adapter<AccueilAdapter.ViewHold
             // Define click listener for the ViewHolder's View
             textViewTache = view.findViewById(R.id.tvtaches);
             textViewDateLimite = view.findViewById(R.id.deadline);
+            textViewTempsEcoule = view.findViewById(R.id.tempsecoule);
+            textViewPourcentageFait = view.findViewById(R.id.pourcentagefait);
 
             Image = view.findViewById(R.id.imgButton);
-            textViewTempsEcoule = view.findViewById(R.id.tempsecoule);
+
             linearLayout = view;
         }
     }
@@ -65,11 +68,16 @@ public class AccueilAdapter extends RecyclerView.Adapter<AccueilAdapter.ViewHold
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
         Taches tacheactuel = list.get(position);
-        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yy");
-     //   Date date = simpleDateFormat.parse();
 
-        viewHolder.textViewTache.setText(tacheactuel.taches);
-      //  viewHolder.textViewDateLimite.setText(tacheactuel.deadline.parse);
+//        String pattern = "MM/dd/yy";
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+
+        viewHolder.textViewTache.setText(tacheactuel.nom);
+        viewHolder.textViewDateLimite.setText(tacheactuel.deadline.toString());
+        viewHolder.textViewPourcentageFait.setText(tacheactuel.percentageDone);
+        viewHolder.textViewTempsEcoule.setText(tacheactuel.percentageSpent);
+
+
         viewHolder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

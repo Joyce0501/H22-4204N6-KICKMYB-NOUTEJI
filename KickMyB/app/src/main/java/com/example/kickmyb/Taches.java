@@ -6,7 +6,9 @@ public class Taches {
 
     public String nom;
     public Date deadline;
+    public int percentageDone;
+    public int percentageSpent;
 
 
-    public String taches;
+   // public String taches;
 }
