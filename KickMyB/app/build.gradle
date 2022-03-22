@@ -43,6 +43,10 @@ dependencies {
 
     implementation 'com.github.departement-info-cem:KickMyB-Library:6a00011735ba1159758b762fc3d3f5cfcdefba69'
 
+   // implementation 'com.squareup.okhttp3:logging-interceptor:4.2.1'
+
+    implementation group: 'com.squareup.okhttp3', name: 'logging-interceptor', version: '3.14.9'
+
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'

@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -50,6 +51,8 @@ public class CreationActivity extends AppCompatActivity {
         binding = ActivityCreationBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+
+        editNom();
 
         binding.buttonAccueil.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -170,7 +173,14 @@ public class CreationActivity extends AppCompatActivity {
         });
     }
 
+    public void editNom(){
+        View headerView = binding.navView.getHeaderView(0);
+        TextView text = (TextView)headerView.findViewById(R.id.username);
+        text.setText(SingletonNom.leNom);
+    }
+
     public void ajoutTache(){
+
         AddTaskRequest add = new AddTaskRequest();
         add.name = "laver mes chaussures";
         add.deadline = new Date();

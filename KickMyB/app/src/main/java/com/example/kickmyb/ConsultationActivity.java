@@ -5,6 +5,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -31,6 +32,8 @@ public class ConsultationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setTitle("Consultation");
+
+        editNom();
 
         binding = ActivityConsultationBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
@@ -74,6 +77,12 @@ public class ConsultationActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+
+    public void editNom(){
+        View headerView = binding.navView.getHeaderView(0);
+        TextView text = (TextView)headerView.findViewById(R.id.username);
+        text.setText(SingletonNom.leNom);
     }
 
     @Override
