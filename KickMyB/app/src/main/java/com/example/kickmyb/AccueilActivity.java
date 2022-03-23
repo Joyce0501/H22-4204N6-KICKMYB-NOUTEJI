@@ -124,8 +124,6 @@ public class AccueilActivity extends AppCompatActivity {
 
     }
 
-
-
     public void initRecycler()
     {
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
@@ -150,7 +148,6 @@ public class AccueilActivity extends AppCompatActivity {
 //        }
 //        adapter.notifyDataSetChanged();
 
-
         RetrofitUtil.get().listeTache().enqueue(new Callback<List<HomeItemResponse>>() {
             @Override
             public void onResponse(Call<List<HomeItemResponse>> call, Response<List<HomeItemResponse>> response) {
@@ -162,7 +159,7 @@ public class AccueilActivity extends AppCompatActivity {
                         Taches t = new Taches();
                         t.nom = response.body().get(i).name;
                         t.deadline = response.body().get(i).deadline;
-                        t.percentageDone = response.body().get(i).percentageDone;
+                         t.percentageDone = response.body().get(i).percentageDone;
                         t.percentageSpent = response.body().get(i).percentageTimeSpent;
                         adapter.list.add(t);
 

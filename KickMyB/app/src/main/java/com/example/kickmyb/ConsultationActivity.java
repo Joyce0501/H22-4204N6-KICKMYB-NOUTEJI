@@ -30,14 +30,16 @@ public class ConsultationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
         setTitle("Consultation");
 
-        editNom();
+
 
         binding = ActivityConsultationBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+
+        editNom();
 
         NavigationView nv = binding.navView;
         DrawerLayout dl = binding.drawerlayout;

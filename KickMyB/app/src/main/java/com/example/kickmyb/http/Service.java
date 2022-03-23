@@ -5,6 +5,7 @@ import org.kickmyb.transfer.HomeItemResponse;
 import org.kickmyb.transfer.SigninRequest;
 import org.kickmyb.transfer.SigninResponse;
 import org.kickmyb.transfer.SignupRequest;
+import org.kickmyb.transfer.TaskDetailResponse;
 
 import java.util.List;
 
@@ -30,4 +31,7 @@ public interface Service {
 
     @GET("/api/home")
     Call<List<HomeItemResponse>> listeTache();
+
+    @GET("/api/progress/{id}")
+    Call<TaskDetailResponse> detailTache(@Path("id") Long id);
 }

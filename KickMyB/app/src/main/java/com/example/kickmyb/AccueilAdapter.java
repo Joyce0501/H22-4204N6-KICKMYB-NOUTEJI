@@ -74,8 +74,8 @@ public class AccueilAdapter extends RecyclerView.Adapter<AccueilAdapter.ViewHold
 
         viewHolder.textViewTache.setText(tacheactuel.nom);
         viewHolder.textViewDateLimite.setText(tacheactuel.deadline.toString());
-        viewHolder.textViewPourcentageFait.setText(tacheactuel.percentageDone);
-        viewHolder.textViewTempsEcoule.setText(tacheactuel.percentageSpent);
+        viewHolder.textViewPourcentageFait.setText(tacheactuel.percentageDone + "");
+        viewHolder.textViewTempsEcoule.setText(tacheactuel.percentageSpent + "");
 
 
         viewHolder.linearLayout.setOnClickListener(new View.OnClickListener() {
