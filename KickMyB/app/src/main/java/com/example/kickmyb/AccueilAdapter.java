@@ -1,19 +1,29 @@
 package com.example.kickmyb;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.kickmyb.http.RetrofitUtil;
+
+import org.kickmyb.transfer.TaskDetailResponse;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class AccueilAdapter extends RecyclerView.Adapter<AccueilAdapter.ViewHolder>{
     public List<Taches> list;
@@ -74,17 +84,19 @@ public class AccueilAdapter extends RecyclerView.Adapter<AccueilAdapter.ViewHold
 
         viewHolder.textViewTache.setText(tacheactuel.nom);
         viewHolder.textViewDateLimite.setText(tacheactuel.deadline.toString());
-        viewHolder.textViewPourcentageFait.setText(tacheactuel.percentageDone + "");
-        viewHolder.textViewTempsEcoule.setText(tacheactuel.percentageSpent + "");
+        viewHolder.textViewPourcentageFait.setText(tacheactuel.percentageDone + "%");
+        viewHolder.textViewTempsEcoule.setText(tacheactuel.percentageSpent + "%");
 
 
         viewHolder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent consulter = new Intent(view.getContext(),ConsultationActivity.class);
+                consulter.putExtra("idTache",tacheactuel.id);
                 view.getContext().startActivity(consulter);
             }
         });
+
 
 //        viewHolder.Image.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -117,4 +129,5 @@ public class AccueilAdapter extends RecyclerView.Adapter<AccueilAdapter.ViewHold
     public int getItemCount() {
         return list.size();
     }
+
 }

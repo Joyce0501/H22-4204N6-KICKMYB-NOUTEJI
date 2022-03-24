@@ -64,7 +64,7 @@
                     android:textColor="@color/black"
                     android:text="- Pourcentage d'avancement : 30%" />
                 <TextView
-                    android:id="@+id/avancement"
+                    android:id="@+id/avancementTexte"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -73,12 +73,29 @@
                     android:textColor="@color/black"
                     android:text="- Modifiez le pourcentage grâce à cette barre : " />
 
-                <SeekBar
+
+
+<!--                <SeekBar-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_margin="30dp">-->
+<!--                </SeekBar>-->
+
+                <EditText
+                    android:id="@+id/avancement"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </EditText>
+
+                <Button
+                    android:id="@+id/sauvegarde"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="30dp">
-                </SeekBar>
-
+                    android:layout_margin="10dp"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:text=" Sauvegarde " />
                 <TextView
                     android:id="@+id/infoTemps"
                     android:layout_width="match_parent"

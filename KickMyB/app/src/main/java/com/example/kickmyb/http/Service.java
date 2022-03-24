@@ -32,6 +32,10 @@ public interface Service {
     @GET("/api/home")
     Call<List<HomeItemResponse>> listeTache();
 
-    @GET("/api/progress/{id}")
+    @GET("/api/detail/{id}")
     Call<TaskDetailResponse> detailTache(@Path("id") Long id);
+
+    @GET("/api/progress/{id}/{valeur}")
+    Call<String> changerPourcentage(@Path("id") Long id,
+                                    @Path("valeur") Long valeur);
 }

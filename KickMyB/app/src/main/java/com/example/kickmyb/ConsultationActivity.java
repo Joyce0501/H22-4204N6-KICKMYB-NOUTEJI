@@ -3,6 +3,7 @@ package com.example.kickmyb;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -17,6 +18,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.kickmyb.databinding.ActivityConsultationBinding;
 import com.example.kickmyb.http.RetrofitUtil;
 import com.google.android.material.navigation.NavigationView;
+
+import org.kickmyb.transfer.TaskDetailResponse;
+import org.w3c.dom.Text;
+
+import java.util.Date;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -40,6 +46,16 @@ public class ConsultationActivity extends AppCompatActivity {
         setContentView(view);
 
         editNom();
+
+        detailTache();
+
+        // recevoir lID
+
+
+
+        // aller chercher l'objet
+
+
 
         NavigationView nv = binding.navView;
         DrawerLayout dl = binding.drawerlayout;
@@ -85,6 +101,54 @@ public class ConsultationActivity extends AppCompatActivity {
         View headerView = binding.navView.getHeaderView(0);
         TextView text = (TextView)headerView.findViewById(R.id.username);
         text.setText(SingletonNom.leNom);
+    }
+
+    public void detailTache(){
+        Long idTache = getIntent().getLongExtra("idTache",0);
+        RetrofitUtil.get().detailTache(idTache).enqueue(new Callback<TaskDetailResponse>() {
+            @Override
+            public void onResponse(Call<TaskDetailResponse> call, Response<TaskDetailResponse> response) {
+                if (response.isSuccessful()) {
+                    TaskDetailResponse data = response.body();
+
+                    binding.editTache.setText(data.name);
+
+                    binding.infoDate.setText("Date limite :" + data.deadline.toString());
+
+                    binding.infoPourcentage.setText("Pourcentage fait : " + data.percentageDone + "%");
+
+                    binding.infoTemps.setText("Temps passé : " + data.percentageTimeSpent + "%");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<TaskDetailResponse> call, Throwable t) {
+                Log.i("coucou", "");
+            }
+        });
+    }
+
+    public void changerPourcentage(){
+        Long idTache = getIntent().getLongExtra("idTache",0);
+        Long valeur = Long.parseLong(binding.avancement.getText().toString());
+
+        RetrofitUtil.get().changerPourcentage(idTache,valeur).enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                if (response.isSuccessful()) {
+                    Log.i("coucou", "");
+
+                }
+                else{
+                    Log.i("recommences", "");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                Log.i("ouch", "");
+            }
+        });
     }
 
     @Override

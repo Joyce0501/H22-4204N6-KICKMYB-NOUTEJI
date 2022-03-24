@@ -22,7 +22,8 @@ public class RetrofitUtil {
             Retrofit retrofit = new Retrofit.Builder()
                     .addConverterFactory(ScalarsConverterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create(CustomGson.getIt()))
-                    .baseUrl("http://10.0.2.2:8080/")
+//                    .baseUrl("http://10.0.2.2:8080/")
+                    .baseUrl("https://lit-ravine-08944.herokuapp.com")
                     .client(client())
                     .build();
 

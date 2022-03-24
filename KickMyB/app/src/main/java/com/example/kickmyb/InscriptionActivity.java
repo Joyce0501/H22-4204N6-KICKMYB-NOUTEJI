@@ -53,7 +53,7 @@ public class InscriptionActivity extends AppCompatActivity {
             public void onResponse(Call<SigninResponse> call, Response<SigninResponse> response) {
                 if(response.isSuccessful())
                 {
-                    Intent retour = new Intent(InscriptionActivity.this,MainActivity.class);
+                    Intent retour = new Intent(InscriptionActivity.this,AccueilActivity.class);
                     startActivity(retour);
                 }
                 else

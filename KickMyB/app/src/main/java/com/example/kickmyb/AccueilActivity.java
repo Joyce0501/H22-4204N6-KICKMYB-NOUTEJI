@@ -159,8 +159,9 @@ public class AccueilActivity extends AppCompatActivity {
                         Taches t = new Taches();
                         t.nom = response.body().get(i).name;
                         t.deadline = response.body().get(i).deadline;
-                         t.percentageDone = response.body().get(i).percentageDone;
+                        t.percentageDone = response.body().get(i).percentageDone;
                         t.percentageSpent = response.body().get(i).percentageTimeSpent;
+                        t.id = response.body().get(i).id;
                         adapter.list.add(t);
 
                     }
