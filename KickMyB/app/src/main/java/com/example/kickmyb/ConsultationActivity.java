@@ -49,12 +49,12 @@ public class ConsultationActivity extends AppCompatActivity {
 
         detailTache();
 
-        // recevoir lID
-
-
-
-        // aller chercher l'objet
-
+        binding.sauvegardeAvancement.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                changerPourcentage();
+            }
+        });
 
 
         NavigationView nv = binding.navView;
@@ -128,6 +128,8 @@ public class ConsultationActivity extends AppCompatActivity {
         });
     }
 
+
+
     public void changerPourcentage(){
         Long idTache = getIntent().getLongExtra("idTache",0);
         Long valeur = Long.parseLong(binding.avancement.getText().toString());
@@ -137,6 +139,7 @@ public class ConsultationActivity extends AppCompatActivity {
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
                     Log.i("coucou", "");
+                    binding.infoPourcentage.setText("Pourcentage fait : " + valeur + "%");
 
                 }
                 else{
@@ -146,6 +149,7 @@ public class ConsultationActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
+
                 Log.i("ouch", "");
             }
         });

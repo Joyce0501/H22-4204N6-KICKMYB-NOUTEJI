@@ -71,7 +71,7 @@
                     android:gravity="start"
                     android:textSize="15dp"
                     android:textColor="@color/black"
-                    android:text="- Modifiez le pourcentage grâce à cette barre : " />
+                    android:text="- Entrez le pourcentage : " />
 
 
 
@@ -88,7 +88,7 @@
                 </EditText>
 
                 <Button
-                    android:id="@+id/sauvegarde"
+                    android:id="@+id/sauvegardeAvancement"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"

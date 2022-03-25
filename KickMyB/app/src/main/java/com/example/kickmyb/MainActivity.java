@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 useUser();
             }
         });
+
         // TODO https://stackoverflow.com/questions/35871454/why-findviewbyid-return-null-for-a-view-in-a-drawer-header
 
         binding.inscription.setOnClickListener(new View.OnClickListener(){
