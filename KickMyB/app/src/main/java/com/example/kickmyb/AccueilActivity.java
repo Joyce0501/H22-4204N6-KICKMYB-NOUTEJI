@@ -154,7 +154,7 @@ public class AccueilActivity extends AppCompatActivity {
                 if(response.isSuccessful()){
                     Toast.makeText(AccueilActivity.this, "Serveur recu", Toast.LENGTH_SHORT).show();
 
-                    adapter.list.clear();
+                  //  adapter.list.clear();
                     for(int i = 0; i < response.body().size(); i++){
                         Taches t = new Taches();
                         t.nom = response.body().get(i).name;

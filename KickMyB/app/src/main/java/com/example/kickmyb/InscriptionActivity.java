@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,11 +44,12 @@ public class InscriptionActivity extends AppCompatActivity {
 
     }
 
+
     public void createUser() {
         SignupRequest signup = new SignupRequest();
         signup.username = binding.inscriptionname.getText().toString();
         signup.password = binding.inscriptionpassword.getText().toString();
-
+        SingletonNom.leNom = "";
         RetrofitUtil.get().inscription(signup).enqueue(new Callback<SigninResponse>() {
             @Override
             public void onResponse(Call<SigninResponse> call, Response<SigninResponse> response) {
@@ -55,6 +57,7 @@ public class InscriptionActivity extends AppCompatActivity {
                 {
                     Intent retour = new Intent(InscriptionActivity.this,AccueilActivity.class);
                     startActivity(retour);
+                    SingletonNom.leNom = response.body().username;
                 }
                 else
                 {
