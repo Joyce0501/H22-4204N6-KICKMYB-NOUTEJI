@@ -57,9 +57,9 @@ public class CreationActivity extends AppCompatActivity {
 
         binding.buttonAccueil.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
-                Intent retour = new Intent(CreationActivity.this,AccueilActivity.class);
-                startActivity(retour);
+           public void onClick(View view) {
+        //        Intent retour = new Intent(CreationActivity.this,AccueilActivity.class);
+        //        startActivity(retour);
                 ajoutTache();
             }
         });
@@ -196,6 +196,8 @@ public class CreationActivity extends AppCompatActivity {
                 public void onResponse(Call<String> call, Response<String> response) {
                     if(response.isSuccessful()){
                         Toast.makeText(CreationActivity.this, "Serveur recu", Toast.LENGTH_SHORT).show();
+                        Intent retour = new Intent(CreationActivity.this,AccueilActivity.class);
+                        startActivity(retour);
                     }
                     else{
 
