@@ -97,30 +97,6 @@ public class AccueilAdapter extends RecyclerView.Adapter<AccueilAdapter.ViewHold
             }
         });
 
-
-//        viewHolder.Image.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent results = new Intent(view.getContext(),ConsultationActivity.class);
-//                view.getContext().startActivity(results);
-//            }
-//        });
-//        viewHolder.textViewDateLimite.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent results = new Intent(view.getContext(),ConsultationActivity.class);
-//                view.getContext().startActivity(results);
-//            }
-//        });
-//        viewHolder.textViewTempsEcoule.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent results = new Intent(view.getContext(),ConsultationActivity.class);
-//                view.getContext().startActivity(results);
-//            }
-//        });
-
-
     }
 
 

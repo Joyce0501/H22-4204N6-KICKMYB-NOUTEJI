@@ -50,7 +50,6 @@ public class AccueilActivity extends AppCompatActivity {
 
         this.initRecycler();
         this.remplirRecycler();
-//        obtientliste();
 
         editNom();
 
@@ -140,13 +139,7 @@ public class AccueilActivity extends AppCompatActivity {
         binding.recyclerview.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(),DividerItemDecoration.VERTICAL));
     }
     private void remplirRecycler(){
-//        for(int i = 1; i <= 200; i++)
-//        {
-//            Taches t = new Taches();
-//            t.taches = "Tâche " + i;
-//            adapter.list.add(t);
-//        }
-//        adapter.notifyDataSetChanged();
+
 
         RetrofitUtil.get().listeTache().enqueue(new Callback<List<HomeItemResponse>>() {
             @Override
@@ -211,32 +204,5 @@ public class AccueilActivity extends AppCompatActivity {
         });
     }
 
-//    public void obtientliste(){
-//
-//        RetrofitUtil.get().listeTache().enqueue(new Callback<List<HomeItemResponse>>() {
-//            @Override
-//            public void onResponse(Call<List<HomeItemResponse>> call, Response<List<HomeItemResponse>> response) {
-//                if(response.isSuccessful()){
-//                    Toast.makeText(AccueilActivity.this, "Serveur recu", Toast.LENGTH_SHORT).show();
-//                    for(int i = 0; i < response.body().size(); i++){
-//                        Taches t = new Taches();
-//                        t.taches = response.body().get(i).name;
-//                        t.taches = response.body().get(i).deadline.toString();
-//                    }
-//                }
-//                else{
-//                    Toast.makeText(AccueilActivity.this, "Ouch", Toast.LENGTH_SHORT).show();
-//                }
-//
-//                adapter.notifyDataSetChanged();
-//            }
-//
-//            @Override
-//            public void onFailure(Call<List<HomeItemResponse>> call, Throwable t) {
-//                Toast.makeText(AccueilActivity.this, "Ouch Serveur", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//
-//    }
 
 }

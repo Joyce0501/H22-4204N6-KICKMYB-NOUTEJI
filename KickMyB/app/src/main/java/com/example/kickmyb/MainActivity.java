@@ -14,11 +14,13 @@ import com.example.kickmyb.databinding.ActivityHeaderBinding;
 import com.example.kickmyb.databinding.ActivityMainBinding;
 import com.example.kickmyb.http.RetrofitUtil;
 
+import org.kickmyb.transfer.HomeItemResponse;
 import org.kickmyb.transfer.SigninRequest;
 import org.kickmyb.transfer.SigninResponse;
 import org.kickmyb.transfer.SignupRequest;
 
 import java.text.BreakIterator;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -26,8 +28,7 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
-    private ActivityHeaderBinding binding2;
-
+    AccueilAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +39,6 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-
-
 
 
         binding.accueil.setOnClickListener(new View.OnClickListener(){
@@ -77,10 +76,12 @@ public class MainActivity extends AppCompatActivity {
                     Intent accueil = new Intent(MainActivity.this,AccueilActivity.class);
                     startActivity(accueil);
                     SingletonNom.leNom = response.body().username;
+
                 }
                 else {
                     Toast.makeText(MainActivity.this, "Ouch", Toast.LENGTH_SHORT).show();
                 }
+
             }
 
             @Override
@@ -90,4 +91,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 }
