@@ -139,8 +139,6 @@ public class AccueilActivity extends AppCompatActivity {
         binding.recyclerview.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(),DividerItemDecoration.VERTICAL));
     }
     private void remplirRecycler(){
-
-
         RetrofitUtil.get().listeTache().enqueue(new Callback<List<HomeItemResponse>>() {
             @Override
             public void onResponse(Call<List<HomeItemResponse>> call, Response<List<HomeItemResponse>> response) {

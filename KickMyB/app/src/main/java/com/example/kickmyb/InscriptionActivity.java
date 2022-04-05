@@ -37,6 +37,7 @@ public class InscriptionActivity extends AppCompatActivity {
         binding.retour.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+
                 createUser();
             }
 

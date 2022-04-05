@@ -71,7 +71,7 @@
                     android:gravity="start"
                     android:textSize="15dp"
                     android:textColor="@color/black"
-                    android:text="- Entrez le pourcentage : " />
+                    android:text=" Entrez un pourcentage entre 0 et 100 : " />
 
 
 
