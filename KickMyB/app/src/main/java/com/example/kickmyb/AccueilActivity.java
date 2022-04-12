@@ -155,6 +155,7 @@ public class AccueilActivity extends AppCompatActivity {
                         t.id = response.body().get(i).id;
                         adapter.list.add(t);
 
+
                     }
 
                     adapter.notifyDataSetChanged();
@@ -174,6 +175,7 @@ public class AccueilActivity extends AppCompatActivity {
         });
 
     }
+
 
     public void editNom(){
         View headerView = binding.navView.getHeaderView(0);

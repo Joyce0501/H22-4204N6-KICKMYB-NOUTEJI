@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +38,7 @@ public class AccueilAdapter extends RecyclerView.Adapter<AccueilAdapter.ViewHold
 
         public TextView textViewTache;
         public View Image;
+        public ProgressBar progressBar;
         public TextView textViewTempsEcoule;
         public TextView textViewDateLimite;
         public TextView textViewPourcentageFait;
@@ -49,8 +51,7 @@ public class AccueilAdapter extends RecyclerView.Adapter<AccueilAdapter.ViewHold
             textViewDateLimite = view.findViewById(R.id.deadline);
             textViewTempsEcoule = view.findViewById(R.id.tempsecoule);
             textViewPourcentageFait = view.findViewById(R.id.pourcentagefait);
-
-            Image = view.findViewById(R.id.imgButton);
+            progressBar = view.findViewById(R.id.imgButton);
 
             linearLayout = view;
         }
@@ -79,13 +80,14 @@ public class AccueilAdapter extends RecyclerView.Adapter<AccueilAdapter.ViewHold
         // contents of the view with that element
         Taches tacheactuel = list.get(position);
 
-//        String pattern = "MM/dd/yy";
-//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String pattern = "EEE , MM/dd/yy";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 
         viewHolder.textViewTache.setText(tacheactuel.nom);
-        viewHolder.textViewDateLimite.setText(tacheactuel.deadline.toString());
+        viewHolder.textViewDateLimite.setText(simpleDateFormat.format(tacheactuel.deadline));
         viewHolder.textViewPourcentageFait.setText(tacheactuel.percentageDone + "%");
         viewHolder.textViewTempsEcoule.setText(tacheactuel.percentageSpent + "%");
+        viewHolder.progressBar.setProgress(tacheactuel.percentageDone );
 
 
         viewHolder.linearLayout.setOnClickListener(new View.OnClickListener() {

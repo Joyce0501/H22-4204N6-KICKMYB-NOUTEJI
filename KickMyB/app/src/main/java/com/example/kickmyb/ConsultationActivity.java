@@ -22,6 +22,7 @@ import com.google.android.material.navigation.NavigationView;
 import org.kickmyb.transfer.TaskDetailResponse;
 import org.w3c.dom.Text;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import retrofit2.Call;
@@ -52,7 +53,16 @@ public class ConsultationActivity extends AppCompatActivity {
         binding.sauvegardeAvancement.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                changerPourcentage();
+                Long valeur = Long.parseLong(binding.avancement.getText().toString());
+                if(valeur < 0 || valeur > 100)
+                {
+                    binding.avancement.setError("La valeur inscrite n'est pas bonne ");
+                }
+                else
+                {
+                    changerPourcentage();
+                }
+
             }
         });
 
@@ -105,6 +115,8 @@ public class ConsultationActivity extends AppCompatActivity {
 
     public void detailTache(){
         Long idTache = getIntent().getLongExtra("idTache",0);
+        String pattern = "EEE , MM/dd/yy";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         RetrofitUtil.get().detailTache(idTache).enqueue(new Callback<TaskDetailResponse>() {
             @Override
             public void onResponse(Call<TaskDetailResponse> call, Response<TaskDetailResponse> response) {
@@ -113,7 +125,8 @@ public class ConsultationActivity extends AppCompatActivity {
 
                     binding.editTache.setText(data.name);
 
-                    binding.infoDate.setText("Date limite :" + data.deadline.toString());
+                  //  binding.infoDate.setText("Date limite :" + data.deadline.toString());
+                    binding.infoDate.setText("Date limite : " + simpleDateFormat.format(data.deadline));
 
                     binding.infoPourcentage.setText("Pourcentage fait : " + data.percentageDone + "%");
 
@@ -139,7 +152,8 @@ public class ConsultationActivity extends AppCompatActivity {
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
                     Log.i("coucou", "");
-                    binding.infoPourcentage.setText("Pourcentage fait : " + valeur + "%");
+                    Intent retour = new Intent(ConsultationActivity.this,AccueilActivity.class);
+                    startActivity(retour);
 
                 }
                 else{
