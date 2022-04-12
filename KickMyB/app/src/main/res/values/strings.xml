@@ -2,4 +2,7 @@
     <string name="app_name">KickMyB</string>
     <string name="drawer_open">Close me</string>
     <string name="drawer_close">Open me</string>
+    <string name="no_network">No network</string>
+    <string name="retry">Retry</string>
+    <string name="ok">Ok</string>
 </resources>

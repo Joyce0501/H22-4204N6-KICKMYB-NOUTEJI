@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.kickmyb.databinding.ActivityHeaderBinding;
 import com.example.kickmyb.databinding.ActivityMainBinding;
 import com.example.kickmyb.http.RetrofitUtil;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import org.kickmyb.transfer.HomeItemResponse;
 import org.kickmyb.transfer.SigninRequest;
@@ -88,8 +89,19 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(Call<SigninResponse> call, Throwable t) {
                 Toast.makeText(MainActivity.this, "Ouch Serveur", Toast.LENGTH_SHORT).show();
                 Log.i("ALLO","non");
+
+                showADialog();
             }
         });
+    }
+
+    private void showADialog() {
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this);
+        builder.setTitle(R.string.no_network);
+        builder.setPositiveButton(R.string.ok, (dialogInterface, i) -> {
+            dialogInterface.dismiss();
+        });
+        builder.show();
     }
 
 }

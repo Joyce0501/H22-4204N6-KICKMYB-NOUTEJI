@@ -16,6 +16,8 @@ import org.kickmyb.transfer.SigninRequest;
 import org.kickmyb.transfer.SigninResponse;
 import org.kickmyb.transfer.SignupRequest;
 
+import java.io.IOException;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -62,9 +64,36 @@ public class InscriptionActivity extends AppCompatActivity {
                 }
                 else
                 {
-                        Toast.makeText(InscriptionActivity.this, "Pas possible", Toast.LENGTH_SHORT).show();
+                    try {
+                        String corpsErreur = response.errorBody().string();
+                        Log.i("RETROFIT", "le code " + response.code());
+                        Log.i("RETROFIT", "le message " + response.message());
+                        Log.i("RETROFIT", "le corps " + corpsErreur);
+                        if (corpsErreur.equals("\"PasswordTooShort\"")) {
+                            // TODO remplacer par un objet graphique mieux qu'un toast
+                            //binding.inscriptionpassword.setError(corpsErreur);
+                            binding.inscriptionpassword.setError("The password given is too short");
+                            binding.inscriptionpassword.requestFocus();
+                         // Toast.makeText(InscriptionActivity.this, "The password given is too short", Toast.LENGTH_SHORT).show();
+                        }
+                        else if(corpsErreur.equals("\"UsernameTooShort\"")){
+                            // binding.inscriptionname.setError(corpsErreur);
+                            binding.inscriptionname.setError("The username given is too short");
+                            binding.inscriptionname.requestFocus();
+                        }
+                        else if(corpsErreur.equals("\"UsernameAlreadyTaken\"")){
+                            // binding.inscriptionname.setError(corpsErreur);
+                            binding.inscriptionname.setError("The username given is already taken");
+                            binding.inscriptionname.requestFocus();
+                        }
 
+                    }
+                    catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                       // Toast.makeText(InscriptionActivity.this, "Pas possible", Toast.LENGTH_SHORT).show();
                 }
+
                 Log.i("ALLO","oK");
             }
 
@@ -74,5 +103,14 @@ public class InscriptionActivity extends AppCompatActivity {
                 Log.i("ALLO","non");
             }
         });
+    }
+
+    private void showMessageSurChamp(){
+        // si le message d'erreur sur un champ texte est en dehors de la zone
+        // visible, il faut demander le focus pour obliger le scroll à y aller
+
+        binding.inscriptionpassword.requestFocus();
+
+
     }
 }
