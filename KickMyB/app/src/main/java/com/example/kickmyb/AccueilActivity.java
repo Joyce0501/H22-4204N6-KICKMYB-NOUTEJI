@@ -1,7 +1,9 @@
 package com.example.kickmyb;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -17,6 +19,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.kickmyb.databinding.ActivityAccueilBinding;
 import com.example.kickmyb.http.RetrofitUtil;
@@ -26,8 +29,11 @@ import org.kickmyb.transfer.AddTaskRequest;
 import org.kickmyb.transfer.HomeItemResponse;
 import org.kickmyb.transfer.SigninRequest;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,6 +43,7 @@ public class AccueilActivity extends AppCompatActivity {
     private ActivityAccueilBinding binding;
     private ActionBarDrawerToggle abToggle;
     AccueilAdapter adapter;
+    ProgressDialog progressD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +60,15 @@ public class AccueilActivity extends AppCompatActivity {
 
         editNom();
 
+        binding.swiperefresh.setOnRefreshListener(
+                () -> {
+                    Toast.makeText(AccueilActivity.this, "REFRESH", Toast.LENGTH_LONG).show();
+                    //Part l'animation de loading
+                    binding.swiperefresh.setRefreshing(true);
+                    remplirRecycler();
+                }
+        );
+
         binding.buttonCreation.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -61,7 +77,6 @@ public class AccueilActivity extends AppCompatActivity {
 
             }
         });
-
 
         NavigationView nv = binding.navView;
         DrawerLayout dl = binding.drawerlayout;
@@ -120,7 +135,6 @@ public class AccueilActivity extends AppCompatActivity {
     public void onConfigurationChanged(@NonNull Configuration newConfig) {
         abToggle.onConfigurationChanged(newConfig);
         super.onConfigurationChanged(newConfig);
-
     }
 
     public void initRecycler()
@@ -135,14 +149,17 @@ public class AccueilActivity extends AppCompatActivity {
         //specify an adapter
         adapter = new AccueilAdapter();
         recyclerView.setAdapter(adapter);
-
         binding.recyclerview.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(),DividerItemDecoration.VERTICAL));
     }
     private void remplirRecycler(){
+        progressD = ProgressDialog.show(AccueilActivity.this, "Please wait",
+                "an update occurs", true);
         RetrofitUtil.get().listeTache().enqueue(new Callback<List<HomeItemResponse>>() {
             @Override
             public void onResponse(Call<List<HomeItemResponse>> call, Response<List<HomeItemResponse>> response) {
                 if(response.isSuccessful()){
+                    progressD.dismiss();
+                    adapter.list.clear();
                     Toast.makeText(AccueilActivity.this, "Serveur recu", Toast.LENGTH_SHORT).show();
 
                   //  adapter.list.clear();
@@ -154,20 +171,18 @@ public class AccueilActivity extends AppCompatActivity {
                         t.percentageSpent = response.body().get(i).percentageTimeSpent;
                         t.id = response.body().get(i).id;
                         adapter.list.add(t);
-
-
                     }
 
                     adapter.notifyDataSetChanged();
+                    //Arrête l'animation de loading
+                    binding.swiperefresh.setRefreshing(false);
+                    binding.recyclerview.smoothScrollToPosition(0);        // nécessaire si pas déjà en haut de la liste
                 }
-
                 else{
                     Toast.makeText(AccueilActivity.this, "Ouch", Toast.LENGTH_SHORT).show();
                 }
-
                 adapter.notifyDataSetChanged();
             }
-
             @Override
             public void onFailure(Call<List<HomeItemResponse>> call, Throwable t) {
                 Toast.makeText(AccueilActivity.this, "Ouch Serveur", Toast.LENGTH_SHORT).show();
@@ -203,6 +218,5 @@ public class AccueilActivity extends AppCompatActivity {
             }
         });
     }
-
 
 }

@@ -29,7 +29,6 @@ import retrofit2.Response;
 public class AccueilAdapter extends RecyclerView.Adapter<AccueilAdapter.ViewHolder>{
     public List<Taches> list;
 
-
     /**
      * Provide a reference to the type of views that you are using
      * (custom ViewHolder).

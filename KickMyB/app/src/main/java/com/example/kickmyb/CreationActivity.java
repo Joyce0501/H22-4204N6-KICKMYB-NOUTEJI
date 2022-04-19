@@ -1,6 +1,7 @@
 package com.example.kickmyb;
 
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import org.kickmyb.transfer.AddTaskRequest;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -41,6 +43,7 @@ public class CreationActivity extends AppCompatActivity {
     private ActionBarDrawerToggle abToggle;
     EditText dp1;
     Calendar calendar;
+    ProgressDialog progressD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -189,22 +192,40 @@ public class CreationActivity extends AppCompatActivity {
             add.name = binding.editTache.getText().toString();
             add.deadline = date;
 
+            progressD = ProgressDialog.show(CreationActivity.this, "Please wait",
+                    "an update occurs", true);
             RetrofitUtil.get().ajoutTache(add).enqueue(new Callback<String>() {
                 @Override
                 public void onResponse(Call<String> call, Response<String> response) {
                     if(response.isSuccessful()){
-
+                        progressD.dismiss();
                         Intent retour = new Intent(CreationActivity.this,AccueilActivity.class);
                         startActivity(retour);
                         Toast.makeText(CreationActivity.this, "Serveur recu", Toast.LENGTH_SHORT).show();
                     }
                     else{
+                        progressD.dismiss();
+                        try {
+                            String corpsErreur = response.errorBody().string();
+                            Log.i("RETROFIT", "le code " + response.code());
+                            Log.i("RETROFIT", "le message " + response.message());
+                            Log.i("RETROFIT", "le corps " + corpsErreur);
+                            if (corpsErreur.equals("\"Existing\"")) {
+                                // TODO remplacer par un objet graphique mieux qu'un toast
+                                binding.editTache.setError("This name task is already taken");
+                                binding.editTache.requestFocus();
+                             //   Toast.makeText(CreationActivity.this, " Nom de tache deja utilise", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
 
                     }
                 }
 
                 @Override
                 public void onFailure(Call<String> call, Throwable t) {
+                    progressD.dismiss();
                     Toast.makeText(CreationActivity.this, "Ouch Serveur", Toast.LENGTH_SHORT).show();
                 }
             });

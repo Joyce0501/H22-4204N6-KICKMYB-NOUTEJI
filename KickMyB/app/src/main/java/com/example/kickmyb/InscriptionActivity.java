@@ -1,5 +1,6 @@
 package com.example.kickmyb;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +26,7 @@ import retrofit2.Retrofit;
 
 public class InscriptionActivity extends AppCompatActivity {
     private ActivityInscriptionBinding binding;
+    ProgressDialog progressD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,11 +55,16 @@ public class InscriptionActivity extends AppCompatActivity {
         signup.username = binding.inscriptionname.getText().toString();
         signup.password = binding.inscriptionpassword.getText().toString();
         SingletonNom.leNom = "";
+
+        // On affiche le dialogue avant de lancer la requete
+        progressD = ProgressDialog.show(InscriptionActivity.this, "Please wait",
+                "The registration operation is in progress", true);
         RetrofitUtil.get().inscription(signup).enqueue(new Callback<SigninResponse>() {
             @Override
             public void onResponse(Call<SigninResponse> call, Response<SigninResponse> response) {
                 if(response.isSuccessful())
                 {
+                    progressD.dismiss();
                     Intent retour = new Intent(InscriptionActivity.this,AccueilActivity.class);
                     startActivity(retour);
                     SingletonNom.leNom = response.body().username;
@@ -99,18 +106,10 @@ public class InscriptionActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<SigninResponse> call, Throwable t) {
-
+                progressD.dismiss();
                 Log.i("ALLO","non");
             }
         });
     }
 
-    private void showMessageSurChamp(){
-        // si le message d'erreur sur un champ texte est en dehors de la zone
-        // visible, il faut demander le focus pour obliger le scroll à y aller
-
-        binding.inscriptionpassword.requestFocus();
-
-
-    }
 }

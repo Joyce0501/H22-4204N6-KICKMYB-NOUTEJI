@@ -2,6 +2,7 @@ package com.example.kickmyb;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +21,7 @@ import org.kickmyb.transfer.SigninRequest;
 import org.kickmyb.transfer.SigninResponse;
 import org.kickmyb.transfer.SignupRequest;
 
+import java.io.IOException;
 import java.text.BreakIterator;
 import java.util.List;
 
@@ -30,6 +32,7 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     AccueilAdapter adapter;
+    ProgressDialog progressD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,18 +71,36 @@ public class MainActivity extends AppCompatActivity {
         signin.password = binding.connexionpassword.getText().toString();
 
 
+        // On affiche le dialogue avant de lancer la requete
+        progressD = ProgressDialog.show(MainActivity.this, "Please wait",
+                "The login operation is in progress", true);
         RetrofitUtil.get().connexion(signin).enqueue(new Callback<SigninResponse>() {
             @Override
             public void onResponse(Call<SigninResponse> call, Response<SigninResponse> response) {
                 Log.i("ALLO","oK");
 
                 if(response.isSuccessful()) {
+                    // si on recoit une reponse du serveur, premier truc : on ferme le dialogue
+                    progressD.dismiss();
                     Intent accueil = new Intent(MainActivity.this,AccueilActivity.class);
                     startActivity(accueil);
                     SingletonNom.leNom = response.body().username;
 
                 }
                 else {
+
+                    try {
+                        String corpsErreur = response.errorBody().string();
+                        Log.i("RETROFIT", "le code " + response.code());
+                        Log.i("RETROFIT", "le message " + response.message());
+                        Log.i("RETROFIT", "le corps " + corpsErreur);
+                        if (corpsErreur.contains("TropCourt")) {
+                            // TODO remplacer par un objet graphique mieux qu'un toast
+                            Toast.makeText(MainActivity.this, "Ce message est trop court", Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     Toast.makeText(MainActivity.this, "Ouch", Toast.LENGTH_SHORT).show();
                 }
 
@@ -87,9 +108,10 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<SigninResponse> call, Throwable t) {
+                // si on recoit une reponse du serveur, premier truc : on ferme le dialogue
+                progressD.dismiss();
                 Toast.makeText(MainActivity.this, "Ouch Serveur", Toast.LENGTH_SHORT).show();
                 Log.i("ALLO","non");
-
                 showADialog();
             }
         });
