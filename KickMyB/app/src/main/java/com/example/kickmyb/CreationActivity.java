@@ -22,6 +22,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.kickmyb.databinding.ActivityCreationBinding;
 import com.example.kickmyb.http.RetrofitUtil;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationView;
 
 import org.kickmyb.transfer.AddTaskRequest;
@@ -171,6 +172,7 @@ public class CreationActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<String> call, Throwable t) {
                 Toast.makeText(CreationActivity.this, "Ouch Serveur", Toast.LENGTH_SHORT).show();
+                showADialog();
             }
         });
     }
@@ -216,6 +218,19 @@ public class CreationActivity extends AppCompatActivity {
                                 binding.editTache.requestFocus();
                              //   Toast.makeText(CreationActivity.this, " Nom de tache deja utilise", Toast.LENGTH_SHORT).show();
                             }
+                            else if (corpsErreur.equals("\"TooShort\"")) {
+                                // TODO remplacer par un objet graphique mieux qu'un toast
+                                binding.editTache.setError("This name task is too short");
+                                binding.editTache.requestFocus();
+                                //   Toast.makeText(CreationActivity.this, " Nom de tache deja utilise", Toast.LENGTH_SHORT).show();
+                            }
+                            else if (corpsErreur.equals("\"Empty\"")) {
+                                // TODO remplacer par un objet graphique mieux qu'un toast
+                                binding.editTache.setError("The label name task is empty");
+                                binding.editTache.requestFocus();
+                                //   Toast.makeText(CreationActivity.this, " Nom de tache deja utilise", Toast.LENGTH_SHORT).show();
+                            }
+
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -234,6 +249,15 @@ public class CreationActivity extends AppCompatActivity {
         }
 
 
+    }
+
+    private void showADialog() {
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this);
+        builder.setTitle(R.string.no_network);
+        builder.setPositiveButton(R.string.ok, (dialogInterface, i) -> {
+            dialogInterface.dismiss();
+        });
+        builder.show();
     }
 
 }

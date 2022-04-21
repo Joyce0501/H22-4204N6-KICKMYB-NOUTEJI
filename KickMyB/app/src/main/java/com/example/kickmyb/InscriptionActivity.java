@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.kickmyb.databinding.ActivityInscriptionBinding;
 import com.example.kickmyb.http.RetrofitUtil;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import org.kickmyb.transfer.SigninRequest;
 import org.kickmyb.transfer.SigninResponse;
@@ -108,8 +109,17 @@ public class InscriptionActivity extends AppCompatActivity {
             public void onFailure(Call<SigninResponse> call, Throwable t) {
                 progressD.dismiss();
                 Log.i("ALLO","non");
+                showADialog();
             }
         });
+    }
+    private void showADialog() {
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this);
+        builder.setTitle(R.string.no_network);
+        builder.setPositiveButton(R.string.ok, (dialogInterface, i) -> {
+            dialogInterface.dismiss();
+        });
+        builder.show();
     }
 
 }

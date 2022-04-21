@@ -89,14 +89,16 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else {
 
+                    progressD.dismiss();
                     try {
                         String corpsErreur = response.errorBody().string();
                         Log.i("RETROFIT", "le code " + response.code());
                         Log.i("RETROFIT", "le message " + response.message());
                         Log.i("RETROFIT", "le corps " + corpsErreur);
-                        if (corpsErreur.contains("TropCourt")) {
+                        if (corpsErreur.contains("\"InternalAuthenticationServiceException\"")) {
                             // TODO remplacer par un objet graphique mieux qu'un toast
-                            Toast.makeText(MainActivity.this, "Ce message est trop court", Toast.LENGTH_SHORT).show();
+                //            Toast.makeText(MainActivity.this, "Ce message est trop court", Toast.LENGTH_SHORT).show();
+                            showADialogAuthentification();
                         }
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -110,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(Call<SigninResponse> call, Throwable t) {
                 // si on recoit une reponse du serveur, premier truc : on ferme le dialogue
                 progressD.dismiss();
-                Toast.makeText(MainActivity.this, "Ouch Serveur", Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(MainActivity.this, "Ouch Serveur", Toast.LENGTH_SHORT).show();
                 Log.i("ALLO","non");
                 showADialog();
             }
@@ -120,6 +122,14 @@ public class MainActivity extends AppCompatActivity {
     private void showADialog() {
         MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this);
         builder.setTitle(R.string.no_network);
+        builder.setPositiveButton(R.string.ok, (dialogInterface, i) -> {
+            dialogInterface.dismiss();
+        });
+        builder.show();
+    }
+    private void showADialogAuthentification() {
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this);
+        builder.setTitle(R.string.no_authentification);
         builder.setPositiveButton(R.string.ok, (dialogInterface, i) -> {
             dialogInterface.dismiss();
         });

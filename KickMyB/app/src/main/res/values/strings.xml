@@ -3,6 +3,12 @@
     <string name="drawer_open">Close me</string>
     <string name="drawer_close">Open me</string>
     <string name="no_network">No network</string>
+    <string name="no_authentification">An error occurs</string>
     <string name="retry">Retry</string>
     <string name="ok">Ok</string>
+
+    //Page de Connexion
+<!--    <string name="connexion_welcome">Connect you to your account</string>-->
+<!--    <string name="name_space">tap your name</string>-->
+<!--    <string name="password_space">tap your name</string>-->
 </resources>

@@ -17,6 +17,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.kickmyb.databinding.ActivityConsultationBinding;
 import com.example.kickmyb.http.RetrofitUtil;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationView;
 
 import org.kickmyb.transfer.TaskDetailResponse;
@@ -165,6 +166,7 @@ public class ConsultationActivity extends AppCompatActivity {
             public void onFailure(Call<String> call, Throwable t) {
 
                 Log.i("ouch", "");
+                showADialog();
             }
         });
     }
@@ -208,5 +210,14 @@ public class ConsultationActivity extends AppCompatActivity {
                 Toast.makeText(ConsultationActivity.this, "Ouch Serveur", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void showADialog() {
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this);
+        builder.setTitle(R.string.no_network);
+        builder.setPositiveButton(R.string.ok, (dialogInterface, i) -> {
+            dialogInterface.dismiss();
+        });
+        builder.show();
     }
 }
