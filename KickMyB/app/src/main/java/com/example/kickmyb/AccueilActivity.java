@@ -6,6 +6,8 @@ import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -69,6 +71,8 @@ public class AccueilActivity extends AppCompatActivity {
                 }
         );
 
+
+
         binding.buttonCreation.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -117,13 +121,13 @@ public class AccueilActivity extends AppCompatActivity {
             }
         });
     }
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(abToggle.onOptionsItemSelected(item)){
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//        if(abToggle.onOptionsItemSelected(item)){
+//            return true;
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
@@ -217,6 +221,40 @@ public class AccueilActivity extends AppCompatActivity {
                 Toast.makeText(AccueilActivity.this, "Ouch Serveur", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(abToggle.onOptionsItemSelected(item)){
+            return true;
+        }
+
+        switch (item.getItemId()) {
+            case R.id.menu_refresh:
+                Toast.makeText(AccueilActivity.this, "REFRESH EN COURS", Toast.LENGTH_LONG).show();
+
+                //Part l'animation de loading
+                binding.swiperefresh.setRefreshing(true);
+
+                remplirRecycler();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    //    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//        if(abToggle.onOptionsItemSelected(item)){
+//            return true;
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.refresh, menu);
+        return true;
     }
 
 }
