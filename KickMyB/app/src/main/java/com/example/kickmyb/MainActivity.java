@@ -70,10 +70,9 @@ public class MainActivity extends AppCompatActivity {
         signin.username = binding.connexionname.getText().toString();
         signin.password = binding.connexionpassword.getText().toString();
 
-
         // On affiche le dialogue avant de lancer la requete
-        progressD = ProgressDialog.show(MainActivity.this, "Please wait",
-                "The login operation is in progress", true);
+        progressD = ProgressDialog.show(MainActivity.this, R.string.connexion_progress_introduction ,
+                R.string.connexion_progress_message, true ) ;
         RetrofitUtil.get().connexion(signin).enqueue(new Callback<SigninResponse>() {
             @Override
             public void onResponse(Call<SigninResponse> call, Response<SigninResponse> response) {
@@ -89,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else {
 
-                    progressD.dismiss();
+
                     try {
                         String corpsErreur = response.errorBody().string();
                         Log.i("RETROFIT", "le code " + response.code());
@@ -98,12 +97,13 @@ public class MainActivity extends AppCompatActivity {
                         if (corpsErreur.contains("\"InternalAuthenticationServiceException\"")) {
                             // TODO remplacer par un objet graphique mieux qu'un toast
                 //            Toast.makeText(MainActivity.this, "Ce message est trop court", Toast.LENGTH_SHORT).show();
+                            progressD.dismiss();
                             showADialogAuthentification();
                         }
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    Toast.makeText(MainActivity.this, "Ouch", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(MainActivity.this, "Ouch", Toast.LENGTH_SHORT).show();
                 }
 
             }

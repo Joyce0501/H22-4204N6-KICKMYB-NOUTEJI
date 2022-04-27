@@ -80,17 +80,20 @@ public class InscriptionActivity extends AppCompatActivity {
                         if (corpsErreur.equals("\"PasswordTooShort\"")) {
                             // TODO remplacer par un objet graphique mieux qu'un toast
                             //binding.inscriptionpassword.setError(corpsErreur);
+                            progressD.dismiss();
                             binding.inscriptionpassword.setError("The password given is too short");
                             binding.inscriptionpassword.requestFocus();
                          // Toast.makeText(InscriptionActivity.this, "The password given is too short", Toast.LENGTH_SHORT).show();
                         }
                         else if(corpsErreur.equals("\"UsernameTooShort\"")){
                             // binding.inscriptionname.setError(corpsErreur);
+                            progressD.dismiss();
                             binding.inscriptionname.setError("The username given is too short");
                             binding.inscriptionname.requestFocus();
                         }
                         else if(corpsErreur.equals("\"UsernameAlreadyTaken\"")){
                             // binding.inscriptionname.setError(corpsErreur);
+                            progressD.dismiss();
                             binding.inscriptionname.setError("The username given is already taken");
                             binding.inscriptionname.requestFocus();
                         }

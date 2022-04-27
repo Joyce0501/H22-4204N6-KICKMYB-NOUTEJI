@@ -45,6 +45,7 @@ public class CreationActivity extends AppCompatActivity {
     EditText dp1;
     Calendar calendar;
     ProgressDialog progressD;
+    ProgressDialog progressDeconnexion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -156,10 +157,13 @@ public class CreationActivity extends AppCompatActivity {
 
     }
     public void deconnexion() {
+        progressDeconnexion = ProgressDialog.show(CreationActivity.this, "Please wait",
+                "log out in process", true);
         RetrofitUtil.get().deconnexion().enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if(response.isSuccessful()){
+                    progressDeconnexion.dismiss();
                     Toast.makeText(CreationActivity.this, "Serveur recu", Toast.LENGTH_SHORT).show();
                     Intent retour = new Intent(CreationActivity.this,MainActivity.class);
                     startActivity(retour);
@@ -171,6 +175,7 @@ public class CreationActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
+                progressDeconnexion.dismiss();
                 Toast.makeText(CreationActivity.this, "Ouch Serveur", Toast.LENGTH_SHORT).show();
                 showADialog();
             }
@@ -214,18 +219,21 @@ public class CreationActivity extends AppCompatActivity {
                             Log.i("RETROFIT", "le corps " + corpsErreur);
                             if (corpsErreur.equals("\"Existing\"")) {
                                 // TODO remplacer par un objet graphique mieux qu'un toast
+                                progressD.dismiss();
                                 binding.editTache.setError("This name task is already taken");
                                 binding.editTache.requestFocus();
                              //   Toast.makeText(CreationActivity.this, " Nom de tache deja utilise", Toast.LENGTH_SHORT).show();
                             }
                             else if (corpsErreur.equals("\"TooShort\"")) {
                                 // TODO remplacer par un objet graphique mieux qu'un toast
+                                progressD.dismiss();
                                 binding.editTache.setError("This name task is too short");
                                 binding.editTache.requestFocus();
                                 //   Toast.makeText(CreationActivity.this, " Nom de tache deja utilise", Toast.LENGTH_SHORT).show();
                             }
                             else if (corpsErreur.equals("\"Empty\"")) {
                                 // TODO remplacer par un objet graphique mieux qu'un toast
+                                progressD.dismiss();
                                 binding.editTache.setError("The label name task is empty");
                                 binding.editTache.requestFocus();
                                 //   Toast.makeText(CreationActivity.this, " Nom de tache deja utilise", Toast.LENGTH_SHORT).show();
@@ -241,14 +249,13 @@ public class CreationActivity extends AppCompatActivity {
                 @Override
                 public void onFailure(Call<String> call, Throwable t) {
                     progressD.dismiss();
-                    Toast.makeText(CreationActivity.this, "Ouch Serveur", Toast.LENGTH_SHORT).show();
+                     Toast.makeText(CreationActivity.this, "Ouch Serveur", Toast.LENGTH_SHORT).show();
+                    showADialog();
                 }
             });
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
-
     }
 
     private void showADialog() {

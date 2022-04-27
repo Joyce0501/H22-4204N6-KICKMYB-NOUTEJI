@@ -25,6 +25,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.kickmyb.databinding.ActivityAccueilBinding;
 import com.example.kickmyb.http.RetrofitUtil;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationView;
 
 import org.kickmyb.transfer.AddTaskRequest;
@@ -46,6 +47,7 @@ public class AccueilActivity extends AppCompatActivity {
     private ActionBarDrawerToggle abToggle;
     AccueilAdapter adapter;
     ProgressDialog progressD;
+    ProgressDialog progressDeconnexion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -189,6 +191,8 @@ public class AccueilActivity extends AppCompatActivity {
             }
             @Override
             public void onFailure(Call<List<HomeItemResponse>> call, Throwable t) {
+                progressD.dismiss();
+                showADialog();
                 Toast.makeText(AccueilActivity.this, "Ouch Serveur", Toast.LENGTH_SHORT).show();
             }
         });
@@ -203,10 +207,13 @@ public class AccueilActivity extends AppCompatActivity {
     }
 
     public void deconnexion() {
+        progressDeconnexion = ProgressDialog.show(AccueilActivity.this, "Please wait",
+                "log out in process", true);
         RetrofitUtil.get().deconnexion().enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if(response.isSuccessful()){
+                    progressDeconnexion.dismiss();
                     Toast.makeText(AccueilActivity.this, "Serveur recu", Toast.LENGTH_SHORT).show();
                      Intent retour = new Intent(AccueilActivity.this,MainActivity.class);
                     startActivity(retour);
@@ -218,9 +225,20 @@ public class AccueilActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
+                progressDeconnexion.dismiss();
+                showADialog();
                 Toast.makeText(AccueilActivity.this, "Ouch Serveur", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void showADialog() {
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this);
+        builder.setTitle(R.string.no_network);
+        builder.setPositiveButton(R.string.ok, (dialogInterface, i) -> {
+            dialogInterface.dismiss();
+        });
+        builder.show();
     }
 
     @Override

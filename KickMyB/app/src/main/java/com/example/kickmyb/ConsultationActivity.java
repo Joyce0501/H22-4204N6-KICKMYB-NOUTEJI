@@ -1,5 +1,6 @@
 package com.example.kickmyb;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -34,14 +35,14 @@ import retrofit2.Response;
 public class ConsultationActivity extends AppCompatActivity {
     private ActivityConsultationBinding binding;
     private ActionBarDrawerToggle abToggle;
+    ProgressDialog progressD;
+    ProgressDialog progressDeconnexion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setTitle("Consultation");
-
-
 
         binding = ActivityConsultationBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
@@ -118,12 +119,15 @@ public class ConsultationActivity extends AppCompatActivity {
         Long idTache = getIntent().getLongExtra("idTache",0);
         String pattern = "EEE , MM/dd/yy";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        // On affiche le dialogue avant de lancer la requete
+        progressD = ProgressDialog.show(ConsultationActivity.this, "Please wait",
+                "Informations are loading", true);
         RetrofitUtil.get().detailTache(idTache).enqueue(new Callback<TaskDetailResponse>() {
             @Override
             public void onResponse(Call<TaskDetailResponse> call, Response<TaskDetailResponse> response) {
                 if (response.isSuccessful()) {
                     TaskDetailResponse data = response.body();
-
+                    progressD.dismiss();
                     binding.editTache.setText(data.name);
 
                   //  binding.infoDate.setText("Date limite :" + data.deadline.toString());
@@ -137,7 +141,9 @@ public class ConsultationActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<TaskDetailResponse> call, Throwable t) {
+                progressD.dismiss();
                 Log.i("coucou", "");
+                showADialog();
             }
         });
     }
@@ -147,24 +153,24 @@ public class ConsultationActivity extends AppCompatActivity {
     public void changerPourcentage(){
         Long idTache = getIntent().getLongExtra("idTache",0);
         Long valeur = Long.parseLong(binding.avancement.getText().toString());
-
+        progressD = ProgressDialog.show(ConsultationActivity.this, "Please wait",
+                "Update of the percentage", true);
         RetrofitUtil.get().changerPourcentage(idTache,valeur).enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
                     Log.i("coucou", "");
+                    progressD.dismiss();
                     Intent retour = new Intent(ConsultationActivity.this,AccueilActivity.class);
                     startActivity(retour);
-
                 }
                 else{
                     Log.i("recommences", "");
                 }
             }
-
             @Override
             public void onFailure(Call<String> call, Throwable t) {
-
+                progressD.dismiss();
                 Log.i("ouch", "");
                 showADialog();
             }
@@ -192,10 +198,13 @@ public class ConsultationActivity extends AppCompatActivity {
 
     }
     public void deconnexion() {
+        progressDeconnexion = ProgressDialog.show(ConsultationActivity.this, "Please wait",
+                "log out in process", true);
         RetrofitUtil.get().deconnexion().enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if(response.isSuccessful()){
+                    progressDeconnexion.dismiss();
                     Toast.makeText(ConsultationActivity.this, "Serveur recu", Toast.LENGTH_SHORT).show();
                     Intent retour = new Intent(ConsultationActivity.this,MainActivity.class);
                     startActivity(retour);
@@ -207,6 +216,8 @@ public class ConsultationActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
+                progressDeconnexion.dismiss();
+                showADialog();
                 Toast.makeText(ConsultationActivity.this, "Ouch Serveur", Toast.LENGTH_SHORT).show();
             }
         });

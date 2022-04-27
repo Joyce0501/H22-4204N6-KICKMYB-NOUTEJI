@@ -7,8 +7,9 @@
     <string name="retry">Retry</string>
     <string name="ok">Ok</string>
 
-    //Page de Connexion
-<!--    <string name="connexion_welcome">Connect you to your account</string>-->
-<!--    <string name="name_space">tap your name</string>-->
-<!--    <string name="password_space">tap your name</string>-->
+    <string name="connexion_progress_introduction">Please wait</string>
+    <string name="connexion_progress_message">The login operation is in progress</string>
+    <string name="connexion_welcome">Connect you to your account</string>
+    <string name="name_space">Enter your name</string>
+    <string name="password_space">Enter your password</string>
 </resources>
