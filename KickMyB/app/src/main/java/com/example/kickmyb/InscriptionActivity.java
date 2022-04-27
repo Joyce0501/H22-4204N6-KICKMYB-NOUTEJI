@@ -58,8 +58,8 @@ public class InscriptionActivity extends AppCompatActivity {
         SingletonNom.leNom = "";
 
         // On affiche le dialogue avant de lancer la requete
-        progressD = ProgressDialog.show(InscriptionActivity.this, "Please wait",
-                "The registration operation is in progress", true);
+        progressD = ProgressDialog.show(InscriptionActivity.this, getString(R.string.inscription_progress_introduction),
+                getString(R.string.inscription_progress_message), true);
         RetrofitUtil.get().inscription(signup).enqueue(new Callback<SigninResponse>() {
             @Override
             public void onResponse(Call<SigninResponse> call, Response<SigninResponse> response) {
@@ -81,20 +81,20 @@ public class InscriptionActivity extends AppCompatActivity {
                             // TODO remplacer par un objet graphique mieux qu'un toast
                             //binding.inscriptionpassword.setError(corpsErreur);
                             progressD.dismiss();
-                            binding.inscriptionpassword.setError("The password given is too short");
+                            binding.inscriptionpassword.setError(getString(R.string.inscription_errormessage_passwordshort));
                             binding.inscriptionpassword.requestFocus();
                          // Toast.makeText(InscriptionActivity.this, "The password given is too short", Toast.LENGTH_SHORT).show();
                         }
                         else if(corpsErreur.equals("\"UsernameTooShort\"")){
                             // binding.inscriptionname.setError(corpsErreur);
                             progressD.dismiss();
-                            binding.inscriptionname.setError("The username given is too short");
+                            binding.inscriptionname.setError(getString(R.string.inscription_errormessage_usernameshort));
                             binding.inscriptionname.requestFocus();
                         }
                         else if(corpsErreur.equals("\"UsernameAlreadyTaken\"")){
                             // binding.inscriptionname.setError(corpsErreur);
                             progressD.dismiss();
-                            binding.inscriptionname.setError("The username given is already taken");
+                            binding.inscriptionname.setError(getString(R.string.inscription_errormessage_usernametaken));
                             binding.inscriptionname.requestFocus();
                         }
 

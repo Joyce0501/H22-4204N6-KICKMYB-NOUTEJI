@@ -71,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
         signin.password = binding.connexionpassword.getText().toString();
 
         // On affiche le dialogue avant de lancer la requete
-        progressD = ProgressDialog.show(MainActivity.this, R.string.connexion_progress_introduction ,
-                R.string.connexion_progress_message, true ) ;
+        progressD = ProgressDialog.show(MainActivity.this, getString(R.string.connexion_progress_introduction),
+                getString(R.string.connexion_progress_message), true ) ;
         RetrofitUtil.get().connexion(signin).enqueue(new Callback<SigninResponse>() {
             @Override
             public void onResponse(Call<SigninResponse> call, Response<SigninResponse> response) {

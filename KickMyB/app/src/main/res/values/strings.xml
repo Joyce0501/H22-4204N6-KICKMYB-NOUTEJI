@@ -7,9 +7,24 @@
     <string name="retry">Retry</string>
     <string name="ok">Ok</string>
 
+    // Main Activity
     <string name="connexion_progress_introduction">Please wait</string>
     <string name="connexion_progress_message">The login operation is in progress</string>
     <string name="connexion_welcome">Connect you to your account</string>
-    <string name="name_space">Enter your name</string>
-    <string name="password_space">Enter your password</string>
+    <string name="name_space">Enter your name : </string>
+    <string name="password_space">Enter your password : </string>
+
+    // Inscription Activity
+    <string name="inscription_progress_introduction">Please wait</string>
+    <string name="inscription_progress_message">The registration operation is in progress</string>
+    <string name="inscription_errormessage_passwordshort">The password given is too short</string>
+    <string name="inscription_errormessage_usernameshort">The username given is too short</string>
+    <string name="inscription_errormessage_usernametaken">The username given is already taken</string>
+    <string name="password_confirmation">Confirm your password : </string>
+    <string name="inscription_welcome">Register yourself</string>
+
+    //Accueil Activity
+    <string name="an_update">An update occurs</string>
+    <string name="a_deconnexion">Log out in process</string>
+    <string name="add_task">Add a task</string>
 </resources>

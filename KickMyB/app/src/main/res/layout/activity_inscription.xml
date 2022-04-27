@@ -15,7 +15,7 @@
         android:layout_margin="10dp"
         android:gravity="center_horizontal"
         android:padding="10dp"
-        android:text="Inscrivez-vous"
+        android:text="@string/inscription_welcome"
         android:textColor="@color/black"
         android:textSize="30dp" />
 
@@ -29,7 +29,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Inscrivez votre nom : "
+            android:text="@string/name_space"
             android:layout_margin="10dp"
             android:textSize="15dp"
             android:textColor="@color/black"/>
@@ -54,7 +54,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Inscrivez votre mot de passe : "
+            android:text="@string/password_space"
             android:layout_margin="10dp"
             android:textSize="15dp"
             android:textColor="@color/black"/>
@@ -78,7 +78,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Veuillez confirmer votre mot de passe : "
+            android:text="@string/password_confirmation"
             android:textColor="@color/black"
             android:textSize="15dp"
             android:layout_margin="10dp"/>

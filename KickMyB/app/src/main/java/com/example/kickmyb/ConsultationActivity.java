@@ -18,6 +18,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.kickmyb.databinding.ActivityConsultationBinding;
 import com.example.kickmyb.http.RetrofitUtil;
+import com.example.kickmyb.http.Service;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationView;
 

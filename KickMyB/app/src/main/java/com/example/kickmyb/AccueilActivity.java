@@ -158,8 +158,8 @@ public class AccueilActivity extends AppCompatActivity {
         binding.recyclerview.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(),DividerItemDecoration.VERTICAL));
     }
     private void remplirRecycler(){
-        progressD = ProgressDialog.show(AccueilActivity.this, "Please wait",
-                "an update occurs", true);
+        progressD = ProgressDialog.show(AccueilActivity.this, getString(R.string.connexion_progress_introduction ),
+                getString(R.string.an_update), true);
         RetrofitUtil.get().listeTache().enqueue(new Callback<List<HomeItemResponse>>() {
             @Override
             public void onResponse(Call<List<HomeItemResponse>> call, Response<List<HomeItemResponse>> response) {
@@ -207,8 +207,8 @@ public class AccueilActivity extends AppCompatActivity {
     }
 
     public void deconnexion() {
-        progressDeconnexion = ProgressDialog.show(AccueilActivity.this, "Please wait",
-                "log out in process", true);
+        progressDeconnexion = ProgressDialog.show(AccueilActivity.this, getString(R.string.connexion_progress_introduction ),
+                getString(R.string.a_deconnexion), true);
         RetrofitUtil.get().deconnexion().enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
