@@ -63,7 +63,16 @@ public class CreationActivity extends AppCompatActivity {
         binding.buttonAccueil.setOnClickListener(new View.OnClickListener(){
             @Override
            public void onClick(View view) {
+
+                if(binding.editDate.getText().toString().equals(""))
+                {
+                    binding.editDate.requestFocus();
+                    binding.editDate.setError(getString(R.string.creation_errormessage_datetaskempty));
+                }
+                else
+                {
                     ajoutTache();
+                }
 
             }
         });
@@ -203,6 +212,7 @@ public class CreationActivity extends AppCompatActivity {
 
             progressD = ProgressDialog.show(CreationActivity.this, getString(R.string.connexion_progress_introduction ),
                     getString(R.string.an_update), true);
+
             RetrofitUtil.get().ajoutTache(add).enqueue(new Callback<String>() {
                 @Override
                 public void onResponse(Call<String> call, Response<String> response) {
@@ -213,7 +223,7 @@ public class CreationActivity extends AppCompatActivity {
                         Toast.makeText(CreationActivity.this, "Serveur recu", Toast.LENGTH_SHORT).show();
                     }
                     else{
-                         progressD.dismiss();
+                   //      progressD.dismiss();
                         try {
                             String corpsErreur = response.errorBody().string();
                             Log.i("RETROFIT", "le code " + response.code());

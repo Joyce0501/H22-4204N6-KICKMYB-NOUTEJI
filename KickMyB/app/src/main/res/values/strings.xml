@@ -22,6 +22,7 @@
     <string name="inscription_errormessage_usernametaken">The username given is already taken</string>
     <string name="password_confirmation">Confirm your password : </string>
     <string name="inscription_welcome">Register yourself</string>
+    <string name="inscription_errormessage_passwordconfirmation">Passwords given don\'t correspond</string>
 
     //Accueil Activity
     <string name="an_update">An update occurs</string>

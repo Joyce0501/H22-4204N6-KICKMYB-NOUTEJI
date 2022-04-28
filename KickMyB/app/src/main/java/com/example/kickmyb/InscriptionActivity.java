@@ -42,8 +42,17 @@ public class InscriptionActivity extends AppCompatActivity {
         binding.retour.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+                if(!(binding.confirmationpassword.getText().toString().equals(binding.inscriptionpassword.getText().toString())))
+                {
+                  //  progressD.dismiss();
+                    binding.confirmationpassword.setError(getString(R.string.inscription_errormessage_passwordconfirmation));
+                    binding.confirmationpassword.requestFocus();
+                }
+                else
+                {
+                    createUser();
+                }
 
-                createUser();
             }
 
         });
@@ -63,6 +72,13 @@ public class InscriptionActivity extends AppCompatActivity {
         RetrofitUtil.get().inscription(signup).enqueue(new Callback<SigninResponse>() {
             @Override
             public void onResponse(Call<SigninResponse> call, Response<SigninResponse> response) {
+                if(!(binding.confirmationpassword.getText().toString().equals(binding.inscriptionpassword.getText().toString())))
+                {
+                    progressD.dismiss();
+                    binding.confirmationpassword.setError(getString(R.string.inscription_errormessage_passwordconfirmation));
+                    binding.confirmationpassword.requestFocus();
+                }
+
                 if(response.isSuccessful())
                 {
                     progressD.dismiss();

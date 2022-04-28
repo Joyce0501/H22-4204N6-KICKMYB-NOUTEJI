@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }
                 else {
-                      progressD.dismiss();
+                    progressD.dismiss();
                      showADialogAuthentification();
                     try {
                         String corpsErreur = response.errorBody().string();
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
                         if (corpsErreur.contains("\"InternalAuthenticationServiceException\"")) {
                             // TODO remplacer par un objet graphique mieux qu'un toast
                    //    Toast.makeText(MainActivity.this, "Ce message est trop court", Toast.LENGTH_SHORT).show();
-                        //    progressD.dismiss();
+                           progressD.dismiss();
                             showADialogAuthentification();
                         }
                     } catch (IOException e) {

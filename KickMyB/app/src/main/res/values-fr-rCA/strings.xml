@@ -3,48 +3,49 @@
     <string name="app_name">KickMyB</string>
     <string name="drawer_open">Close me</string>
     <string name="drawer_close">Open me</string>
-    <string name="no_network">Pas de reseau</string>
+    <string name="no_network">Pas de réseau</string>
     <string name="no_authentification">Une erreur s\'est produite</string>
-    <string name="retry">Reessayez</string>
+    <string name="retry">Réessayez</string>
     <string name="ok">Ok</string>
 
     //Main Activity
     <string name="connexion_progress_introduction">Veuillez patienter s\'il vous plait </string>
-    <string name="connexion_progress_message">L\'operation de connexion est en cours</string>
-    <string name="connexion_welcome">Connectez vous a votre compte</string>
+    <string name="connexion_progress_message">L\'opération de connexion est en cours</string>
+    <string name="connexion_welcome">Connectez vous à votre compte</string>
     <string name="name_space">Inscrivez votre nom : </string>
     <string name="password_space">Inscrivez votre mot de passe : </string>
 
     //Inscription Activity
     <string name="inscription_progress_introduction">Veuillez patienter s\'il vous plait</string>
-    <string name="inscription_progress_message">L\'operation d\'inscription est en cours</string>
-    <string name="inscription_errormessage_passwordshort">Le mot de passe donne est trop court</string>
-    <string name="inscription_errormessage_usernameshort">Le nom d\'utilisateur donne est trop court</string>
-    <string name="inscription_errormessage_usernametaken">Le nom d\'utilisateur donne est deja pris</string>
+    <string name="inscription_progress_message">L\'opération d\'inscription est en cours</string>
+    <string name="inscription_errormessage_passwordshort">Le mot de passe donné est trop court</string>
+    <string name="inscription_errormessage_usernameshort">Le nom d\'utilisateur donné est trop court</string>
+    <string name="inscription_errormessage_usernametaken">Ce nom d\'utilisateur existe déjà</string>
     <string name="password_confirmation">Confirmez votre mot de passe : </string>
     <string name="inscription_welcome">Inscrivez vous </string>
+    <string name="inscription_errormessage_passwordconfirmation">Les mots de passe donnés ne correspondent pas</string>
 
     //Accueil Activity
-    <string name="an_update">Une mise a jour se produit</string>
-    <string name="a_deconnexion">En cours de deconnexion</string>
-    <string name="add_task">Creer une tache</string>
+    <string name="an_update">Une mise à jour se produit</string>
+    <string name="a_deconnexion">En cours de déconnexion</string>
+    <string name="add_task">Créer une tâche</string>
 
     //Creation Activity
-    <string name="creation_errormessage_nametaskshort">Le nom de tache donne est trop court</string>
-    <string name="creation_errormessage_nametasktake">Le nom de tache donne est deja pris</string>
-    <string name="creation_errormessage_nametaskempty">Veuillez inscrire un nom de tache s\'il vous plait</string>
+    <string name="creation_errormessage_nametaskshort">Ce nom de tâche est trop court</string>
+    <string name="creation_errormessage_nametasktake">Ce nom de tâche existe déjà </string>
+    <string name="creation_errormessage_nametaskempty">Veuillez inscrire un nom de tâche s\'il vous plait</string>
     <string name="nametask_space">Nom de la tâche</string>
     <string name="deadline_space">Date d\'échéance</string>
     <string name="nametaskhint_space">Le nom de la tâche</string>
     <string name="deadlinehint_space">Double-cliquer sur l\'espace pour entrer la date d\'échéance</string>
     <string name="creation_welcome">Création d\'une tâche</string>
     <string name="back_toWelcome">Accueil</string>
-    <string name="creation_errormessage_datetaskempty">Veuillez inscrire une date d\'echeance s\'il vous plait</string>
+    <string name="creation_errormessage_datetaskempty">Veuillez inscrire une date d\'écheance s\'il vous plait</string>
 
 
     //Consultation Activity
-    <string name="consultation_updatepercentage">Mise a jour du pourcentage</string>
-    <string name="consultation_detailsloading">Chargement des informations de la tache</string>
+    <string name="consultation_updatepercentage">Mise à jour du pourcentage</string>
+    <string name="consultation_detailsloading">Chargement des informations de la tâche</string>
     <string name="consultation_percentage">La valeur inscrite n\'est pas correcte</string>
     <string name="consultation_percentageavancement">- Pourcentage d\'avancement : 30%" </string>
     <string name="consultation_datedecheance">- Date d\'échéance : 23 fevrier 2022</string>
@@ -57,7 +58,7 @@
 
     //Menu
     <string name="menu_welcome">Accueil</string>
-    <string name="menu_task">Ajout de tache</string>
-    <string name="menu_logout">Deconnexion</string>
+    <string name="menu_task">Ajout de tâche</string>
+    <string name="menu_logout">Déconnexion</string>
 
 </resources>
