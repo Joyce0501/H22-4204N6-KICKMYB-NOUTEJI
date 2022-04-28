@@ -27,4 +27,35 @@
     <string name="an_update">An update occurs</string>
     <string name="a_deconnexion">Log out in process</string>
     <string name="add_task">Add a task</string>
+
+    //Creation Activity
+    <string name="creation_errormessage_nametaskshort">This name task is too short</string>
+    <string name="creation_errormessage_nametasktake">This name task is already taken</string>
+    <string name="creation_errormessage_nametaskempty">The label name task is empty</string>
+    <string name="nametask_space">Task\'s name</string>
+    <string name="deadline_space">Due date</string>
+    <string name="nametaskhint_space">The task\'s name</string>
+    <string name="deadlinehint_space">Double click on the space to enter the due date</string>
+    <string name="creation_welcome">Creating a task</string>
+    <string name="back_toWelcome">Welcome</string>
+    <string name="creation_errormessage_datetaskempty">Please enter a deadline</string>
+
+    //Consultation Activity
+    <string name="consultation_updatepercentage">Update of the percentage</string>
+    <string name="consultation_detailsloading">Task\'s details are loading</string>
+    <string name="consultation_percentage">The value doesn\'t fit with the condition of acceptance</string>
+    <string name="consultation_percentageavancement">- Percentage of completion : 30%" </string>
+    <string name="consultation_datedecheance">- Due date : 23 february 2022</string>
+    <string name="consultation_editpercentage"> Enter a percentage between 0 and 100 : </string>
+    <string name="consultation_save"> Save </string>
+    <string name="consultation_timespent">- Time spent : 3 days/7</string>
+    <string name="consultation_infodate">Due date :</string>
+    <string name="consultation_infopercentage">Percentage done :</string>
+    <string name="consultation_infotimespent">Time spent :</string>
+
+    //menu
+    <string name="menu_welcome">Welcome</string>
+    <string name="menu_task">Add a task</string>
+    <string name="menu_logout">Logging out</string>
+
 </resources>

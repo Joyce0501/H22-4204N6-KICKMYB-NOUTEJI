@@ -24,8 +24,40 @@
     <string name="password_confirmation">Confirmez votre mot de passe : </string>
     <string name="inscription_welcome">Inscrivez vous </string>
 
-    //Creation Activity
+    //Accueil Activity
     <string name="an_update">Une mise a jour se produit</string>
     <string name="a_deconnexion">En cours de deconnexion</string>
     <string name="add_task">Creer une tache</string>
+
+    //Creation Activity
+    <string name="creation_errormessage_nametaskshort">Le nom de tache donne est trop court</string>
+    <string name="creation_errormessage_nametasktake">Le nom de tache donne est deja pris</string>
+    <string name="creation_errormessage_nametaskempty">Veuillez inscrire un nom de tache s\'il vous plait</string>
+    <string name="nametask_space">Nom de la tâche</string>
+    <string name="deadline_space">Date d\'échéance</string>
+    <string name="nametaskhint_space">Le nom de la tâche</string>
+    <string name="deadlinehint_space">Double-cliquer sur l\'espace pour entrer la date d\'échéance</string>
+    <string name="creation_welcome">Création d\'une tâche</string>
+    <string name="back_toWelcome">Accueil</string>
+    <string name="creation_errormessage_datetaskempty">Veuillez inscrire une date d\'echeance s\'il vous plait</string>
+
+
+    //Consultation Activity
+    <string name="consultation_updatepercentage">Mise a jour du pourcentage</string>
+    <string name="consultation_detailsloading">Chargement des informations de la tache</string>
+    <string name="consultation_percentage">La valeur inscrite n\'est pas correcte</string>
+    <string name="consultation_percentageavancement">- Pourcentage d\'avancement : 30%" </string>
+    <string name="consultation_datedecheance">- Date d\'échéance : 23 fevrier 2022</string>
+    <string name="consultation_editpercentage"> Entrez un pourcentage entre 0 et 100 : </string>
+    <string name="consultation_save"> Sauvegarde </string>
+    <string name="consultation_timespent">- Temps écoulé : 3 jours/7</string>
+    <string name="consultation_infodate">Date limite : </string>
+    <string name="consultation_infopercentage">Pourcentage fait : </string>
+    <string name="consultation_infotimespent">Temps passé : </string>
+
+    //Menu
+    <string name="menu_welcome">Accueil</string>
+    <string name="menu_task">Ajout de tache</string>
+    <string name="menu_logout">Deconnexion</string>
+
 </resources>

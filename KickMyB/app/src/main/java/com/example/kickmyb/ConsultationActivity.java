@@ -59,7 +59,7 @@ public class ConsultationActivity extends AppCompatActivity {
                 Long valeur = Long.parseLong(binding.avancement.getText().toString());
                 if(valeur < 0 || valeur > 100)
                 {
-                    binding.avancement.setError("La valeur inscrite n'est pas bonne ");
+                    binding.avancement.setError(getString(R.string.consultation_percentage));
                 }
                 else
                 {
@@ -121,8 +121,8 @@ public class ConsultationActivity extends AppCompatActivity {
         String pattern = "EEE , MM/dd/yy";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         // On affiche le dialogue avant de lancer la requete
-        progressD = ProgressDialog.show(ConsultationActivity.this, "Please wait",
-                "Informations are loading", true);
+        progressD = ProgressDialog.show(ConsultationActivity.this, getString(R.string.connexion_progress_introduction),
+                getString(R.string.consultation_detailsloading), true);
         RetrofitUtil.get().detailTache(idTache).enqueue(new Callback<TaskDetailResponse>() {
             @Override
             public void onResponse(Call<TaskDetailResponse> call, Response<TaskDetailResponse> response) {
@@ -132,11 +132,11 @@ public class ConsultationActivity extends AppCompatActivity {
                     binding.editTache.setText(data.name);
 
                   //  binding.infoDate.setText("Date limite :" + data.deadline.toString());
-                    binding.infoDate.setText("Date limite : " + simpleDateFormat.format(data.deadline));
+                    binding.infoDate.setText(getString(R.string.consultation_infodate) + simpleDateFormat.format(data.deadline));
 
-                    binding.infoPourcentage.setText("Pourcentage fait : " + data.percentageDone + "%");
+                    binding.infoPourcentage.setText(getString(R.string.consultation_infopercentage) + data.percentageDone + "%");
 
-                    binding.infoTemps.setText("Temps passé : " + data.percentageTimeSpent + "%");
+                    binding.infoTemps.setText(getString(R.string.consultation_infotimespent) + data.percentageTimeSpent + "%");
                 }
             }
 
@@ -154,8 +154,8 @@ public class ConsultationActivity extends AppCompatActivity {
     public void changerPourcentage(){
         Long idTache = getIntent().getLongExtra("idTache",0);
         Long valeur = Long.parseLong(binding.avancement.getText().toString());
-        progressD = ProgressDialog.show(ConsultationActivity.this, "Please wait",
-                "Update of the percentage", true);
+        progressD = ProgressDialog.show(ConsultationActivity.this, getString(R.string.connexion_progress_introduction),
+                getString(R.string.consultation_updatepercentage), true);
         RetrofitUtil.get().changerPourcentage(idTache,valeur).enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
@@ -166,6 +166,7 @@ public class ConsultationActivity extends AppCompatActivity {
                     startActivity(retour);
                 }
                 else{
+                    progressD.dismiss();
                     Log.i("recommences", "");
                 }
             }
@@ -199,8 +200,8 @@ public class ConsultationActivity extends AppCompatActivity {
 
     }
     public void deconnexion() {
-        progressDeconnexion = ProgressDialog.show(ConsultationActivity.this, "Please wait",
-                "log out in process", true);
+        progressDeconnexion = ProgressDialog.show(ConsultationActivity.this, getString(R.string.connexion_progress_introduction),
+                getString(R.string.a_deconnexion), true);
         RetrofitUtil.get().deconnexion().enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
@@ -208,6 +209,7 @@ public class ConsultationActivity extends AppCompatActivity {
                     progressDeconnexion.dismiss();
                     Toast.makeText(ConsultationActivity.this, "Serveur recu", Toast.LENGTH_SHORT).show();
                     Intent retour = new Intent(ConsultationActivity.this,MainActivity.class);
+                    finishAffinity();
                     startActivity(retour);
                 }
                 else{

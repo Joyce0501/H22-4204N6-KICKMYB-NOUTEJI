@@ -53,7 +53,7 @@ public class AccueilActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
-        setTitle("Accueil");
+        setTitle(getString(R.string.menu_welcome));
 
         binding = ActivityAccueilBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
@@ -215,7 +215,8 @@ public class AccueilActivity extends AppCompatActivity {
                 if(response.isSuccessful()){
                     progressDeconnexion.dismiss();
                     Toast.makeText(AccueilActivity.this, "Serveur recu", Toast.LENGTH_SHORT).show();
-                     Intent retour = new Intent(AccueilActivity.this,MainActivity.class);
+                    Intent retour = new Intent(AccueilActivity.this,MainActivity.class);
+                    finishAffinity();
                     startActivity(retour);
                 }
                 else{

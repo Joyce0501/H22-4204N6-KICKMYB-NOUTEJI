@@ -33,10 +33,10 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:textColor="@color/black"
-                android:text="Tâche 1"
+                android:text=""
                 android:textSize="20dp"
                 android:gravity="center"
-                android:hint="Le nom de la tache" />
+                android:hint="@string/nametaskhint_space" />
 
 
             <LinearLayout
@@ -52,7 +52,7 @@
                     android:gravity="start"
                     android:textSize="15dp"
                     android:textColor="@color/black"
-                    android:text="- Date d'échéance : 23 fevrier 2022" />
+                    android:text="@string/consultation_datedecheance" />
 
                 <TextView
                     android:id="@+id/infoPourcentage"
@@ -62,7 +62,7 @@
                     android:gravity="start"
                     android:textSize="15dp"
                     android:textColor="@color/black"
-                    android:text="- Pourcentage d'avancement : 30%" />
+                    android:text="@string/consultation_percentageavancement" />
                 <TextView
                     android:id="@+id/avancementTexte"
                     android:layout_width="match_parent"
@@ -71,7 +71,7 @@
                     android:gravity="start"
                     android:textSize="15dp"
                     android:textColor="@color/black"
-                    android:text=" Entrez un pourcentage entre 0 et 100 : " />
+                    android:text="@string/consultation_editpercentage" />
 
 
 
@@ -96,7 +96,7 @@
                     android:textSize="15dp"
                     android:textColor="@color/black"
                     android:textAlignment="center"
-                    android:text=" Sauvegarde " />
+                    android:text="@string/consultation_save"/>
                 <TextView
                     android:id="@+id/infoTemps"
                     android:layout_width="match_parent"
@@ -105,7 +105,7 @@
                     android:gravity="start"
                     android:textSize="15dp"
                     android:textColor="@color/black"
-                    android:text="- Temps écoulé : 3 jours/7" />
+                    android:text="@string/consultation_timespent"/>
 
             </LinearLayout>
 

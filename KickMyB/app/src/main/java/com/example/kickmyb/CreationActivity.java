@@ -63,7 +63,8 @@ public class CreationActivity extends AppCompatActivity {
         binding.buttonAccueil.setOnClickListener(new View.OnClickListener(){
             @Override
            public void onClick(View view) {
-                ajoutTache();
+                    ajoutTache();
+
             }
         });
 
@@ -157,8 +158,8 @@ public class CreationActivity extends AppCompatActivity {
 
     }
     public void deconnexion() {
-        progressDeconnexion = ProgressDialog.show(CreationActivity.this, "Please wait",
-                "log out in process", true);
+        progressDeconnexion = ProgressDialog.show(CreationActivity.this, getString(R.string.connexion_progress_introduction),
+                getString(R.string.a_deconnexion), true);
         RetrofitUtil.get().deconnexion().enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
@@ -166,6 +167,7 @@ public class CreationActivity extends AppCompatActivity {
                     progressDeconnexion.dismiss();
                     Toast.makeText(CreationActivity.this, "Serveur recu", Toast.LENGTH_SHORT).show();
                     Intent retour = new Intent(CreationActivity.this,MainActivity.class);
+                    finishAffinity();
                     startActivity(retour);
                 }
                 else{
@@ -199,8 +201,8 @@ public class CreationActivity extends AppCompatActivity {
             add.name = binding.editTache.getText().toString();
             add.deadline = date;
 
-            progressD = ProgressDialog.show(CreationActivity.this, "Please wait",
-                    "an update occurs", true);
+            progressD = ProgressDialog.show(CreationActivity.this, getString(R.string.connexion_progress_introduction ),
+                    getString(R.string.an_update), true);
             RetrofitUtil.get().ajoutTache(add).enqueue(new Callback<String>() {
                 @Override
                 public void onResponse(Call<String> call, Response<String> response) {
@@ -211,7 +213,7 @@ public class CreationActivity extends AppCompatActivity {
                         Toast.makeText(CreationActivity.this, "Serveur recu", Toast.LENGTH_SHORT).show();
                     }
                     else{
-                        progressD.dismiss();
+                         progressD.dismiss();
                         try {
                             String corpsErreur = response.errorBody().string();
                             Log.i("RETROFIT", "le code " + response.code());
@@ -220,24 +222,30 @@ public class CreationActivity extends AppCompatActivity {
                             if (corpsErreur.equals("\"Existing\"")) {
                                 // TODO remplacer par un objet graphique mieux qu'un toast
                                 progressD.dismiss();
-                                binding.editTache.setError("This name task is already taken");
+                                binding.editTache.setError(getString(R.string.creation_errormessage_nametasktake));
                                 binding.editTache.requestFocus();
                              //   Toast.makeText(CreationActivity.this, " Nom de tache deja utilise", Toast.LENGTH_SHORT).show();
                             }
                             else if (corpsErreur.equals("\"TooShort\"")) {
                                 // TODO remplacer par un objet graphique mieux qu'un toast
                                 progressD.dismiss();
-                                binding.editTache.setError("This name task is too short");
+                                binding.editTache.setError(getString(R.string.creation_errormessage_nametaskshort));
                                 binding.editTache.requestFocus();
                                 //   Toast.makeText(CreationActivity.this, " Nom de tache deja utilise", Toast.LENGTH_SHORT).show();
                             }
                             else if (corpsErreur.equals("\"Empty\"")) {
                                 // TODO remplacer par un objet graphique mieux qu'un toast
                                 progressD.dismiss();
-                                binding.editTache.setError("The label name task is empty");
+                                binding.editTache.setError(getString(R.string.creation_errormessage_nametaskempty));
                                 binding.editTache.requestFocus();
                                 //   Toast.makeText(CreationActivity.this, " Nom de tache deja utilise", Toast.LENGTH_SHORT).show();
                             }
+                          /*  else if(binding.editDate.getText().toString().isEmpty())
+                            {
+                                progressD.dismiss();
+                                binding.editDate.setError(getString(R.string.creation_errormessage_datetaskempty));
+                                binding.editDate.requestFocus();
+                            }*/
 
                         } catch (IOException e) {
                             e.printStackTrace();

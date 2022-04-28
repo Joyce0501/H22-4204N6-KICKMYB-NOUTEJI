@@ -23,7 +23,7 @@
                 android:layout_margin="10dp"
                 android:gravity="center_horizontal"
                 android:textColor="@color/black"
-                android:text="Création d'une tâche"
+                android:text="@string/creation_welcome"
                 android:textSize="30dp"
                 />
 
@@ -34,7 +34,7 @@
                 android:layout_margin="10dp"
                 android:textSize="15dp"
                 android:textColor="@color/black"
-                android:text="Nom de la tâche"
+                android:text="@string/nametask_space"
                 android:textAlignment="textStart" />
 
             <EditText
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:textColor="@color/black"
-                android:hint="Le nom de la tâche" />
+                android:hint="@string/nametaskhint_space" />
 
             <TextView
                 android:id="@+id/TaDate"
@@ -53,7 +53,7 @@
                 android:gravity="start"
                 android:textSize="15dp"
                 android:textColor="@color/black"
-                android:text="Date d'échéance"
+                android:text="@string/deadline_space"
                 android:textAlignment="textStart" />
 
             <EditText
@@ -61,14 +61,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:hint="Double-cliquer sur l'espace pour entrer la date d'échéance" />
+                android:hint="@string/deadlinehint_space" />
 
             <Button
                 android:id="@+id/buttonAccueil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="Accueil" />
+                android:text="@string/back_toWelcome" />
 
 
         </LinearLayout>
