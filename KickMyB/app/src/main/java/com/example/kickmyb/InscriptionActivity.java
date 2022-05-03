@@ -58,8 +58,6 @@ public class InscriptionActivity extends AppCompatActivity {
         });
 
     }
-
-
     public void createUser() {
         SignupRequest signup = new SignupRequest();
         signup.username = binding.inscriptionname.getText().toString();
