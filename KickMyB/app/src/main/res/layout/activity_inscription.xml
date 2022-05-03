@@ -51,6 +51,7 @@
             android:layout_marginHorizontal="20dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:drawableStart="@drawable/ic_baseline_perm_identity_24"
                 android:id="@+id/inscriptionname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -92,8 +93,10 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inscriptionpassword"
+                android:drawableStart="@drawable/ic_baseline_lock_24"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:password="true"/>
 
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
@@ -133,7 +136,9 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/confirmationpassword"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_baseline_lock_24"
+                android:password="true"/>
 
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>

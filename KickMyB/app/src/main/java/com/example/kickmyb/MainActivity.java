@@ -87,8 +87,8 @@ public class MainActivity extends AppCompatActivity {
 
                 }
                 else {
-                    progressD.dismiss();
-                     showADialogAuthentification();
+                   /* progressD.dismiss();
+                     showADialogAuthentification();*/
                     try {
                         String corpsErreur = response.errorBody().string();
                         Log.i("RETROFIT", "le code " + response.code());
