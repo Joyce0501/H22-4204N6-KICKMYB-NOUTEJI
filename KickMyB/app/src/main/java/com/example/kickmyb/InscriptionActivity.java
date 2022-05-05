@@ -52,7 +52,6 @@ public class InscriptionActivity extends AppCompatActivity {
                 {
                     createUser();
                 }
-
             }
 
         });

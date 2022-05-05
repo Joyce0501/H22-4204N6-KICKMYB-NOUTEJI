@@ -9,6 +9,13 @@
     android:layout_weight="4"
     tools:context=".MainActivity"
     >
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
@@ -128,5 +135,8 @@
             />
 
     </LinearLayout>
+
+   </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>
