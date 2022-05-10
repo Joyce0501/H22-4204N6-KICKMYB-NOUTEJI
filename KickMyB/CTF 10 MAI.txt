@@ -1,0 +1,17 @@
+CTF 10 Mai : 
+
+Faille : Aucune vérification de l'appartenance d'une tache à un utilisateur lors de la modification du pourcentage de la tache
+et meme lors de la visualisation de ses details
+
+Prelimaire/Supposition : - Aller dans api/id/signup en methode post, se créer un utilisateur avec pour "username" : "joyce" et 
+pour "password" : "pipo"
+
+Exploit :  Se connecter avec le compte crée, 
+         - Aller dans /api/detail/{id} en methode get, tester different id ( 1,2,etc) jusqu'a obtenir dans le body de la reponse du serveur des details d'une tache avec pour nom
+celui dont vous cherchez à modifier le pourcentage (et biensur le statut de code 200)
+         - Quand on obtient la reponse du serveur soit les details de la tache, on a l'id qui apparait que l'on peut utiliser pour 
+la modification du pourcentage d'avancement et de plus confirme l'id utilise dans api/detail
+         -  Aller dans api/progress/{id}/{valeur} en methode get pour modifier le pourcentage de la tache. Modifier les parametres par le
+id de la tache obtenu et la valeur du pourcentage de progression que vous voulez assigner 
+
+Fix : Verifier l'appartenance d'une tache à un utilisateur au lieu de se fier à l'utilisateur courant connecté
