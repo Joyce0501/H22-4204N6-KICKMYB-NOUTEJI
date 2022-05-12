@@ -6,7 +6,7 @@ et meme lors de la visualisation de ses details
 Prelimaire/Supposition : - Aller dans api/id/signup en methode post, se créer un utilisateur avec pour "username" : "joyce" et 
 pour "password" : "pipo"
 
-Exploit :  Se connecter avec le compte crée, 
+Exploit :   
          - Aller dans /api/detail/{id} en methode get, tester different id ( 1,2,etc) jusqu'a obtenir dans le body de la reponse du serveur des details d'une tache avec pour nom
 celui dont vous cherchez à modifier le pourcentage (et biensur le statut de code 200)
          - Quand on obtient la reponse du serveur soit les details de la tache, on a l'id qui apparait que l'on peut utiliser pour 
