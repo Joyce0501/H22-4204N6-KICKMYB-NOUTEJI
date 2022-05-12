@@ -172,6 +172,7 @@ public class CreationActivity extends AppCompatActivity {
         RetrofitUtil.get().deconnexion().enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
+                progressDeconnexion.dismiss();
                 if(response.isSuccessful()){
                     progressDeconnexion.dismiss();
                     Toast.makeText(CreationActivity.this, "Serveur recu", Toast.LENGTH_SHORT).show();
@@ -216,6 +217,7 @@ public class CreationActivity extends AppCompatActivity {
             RetrofitUtil.get().ajoutTache(add).enqueue(new Callback<String>() {
                 @Override
                 public void onResponse(Call<String> call, Response<String> response) {
+                    progressD.dismiss();
                     if(response.isSuccessful()){
                         progressD.dismiss();
                         Intent retour = new Intent(CreationActivity.this,AccueilActivity.class);

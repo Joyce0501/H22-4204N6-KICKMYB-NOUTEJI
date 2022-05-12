@@ -76,6 +76,7 @@ public class InscriptionActivity extends AppCompatActivity {
                     binding.confirmationpassword.requestFocus();
                 }
 
+                progressD.dismiss();
                 if(response.isSuccessful())
                 {
                     progressD.dismiss();

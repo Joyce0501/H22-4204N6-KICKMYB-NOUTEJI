@@ -163,6 +163,7 @@ public class AccueilActivity extends AppCompatActivity {
         RetrofitUtil.get().listeTache().enqueue(new Callback<List<HomeItemResponse>>() {
             @Override
             public void onResponse(Call<List<HomeItemResponse>> call, Response<List<HomeItemResponse>> response) {
+                progressD.dismiss();
                 if(response.isSuccessful()){
                     progressD.dismiss();
                     adapter.list.clear();
@@ -212,6 +213,7 @@ public class AccueilActivity extends AppCompatActivity {
         RetrofitUtil.get().deconnexion().enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
+                progressDeconnexion.dismiss();
                 if(response.isSuccessful()){
                     progressDeconnexion.dismiss();
                     Toast.makeText(AccueilActivity.this, "Serveur recu", Toast.LENGTH_SHORT).show();

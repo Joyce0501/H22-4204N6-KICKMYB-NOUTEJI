@@ -126,6 +126,7 @@ public class ConsultationActivity extends AppCompatActivity {
         RetrofitUtil.get().detailTache(idTache).enqueue(new Callback<TaskDetailResponse>() {
             @Override
             public void onResponse(Call<TaskDetailResponse> call, Response<TaskDetailResponse> response) {
+                progressD.dismiss();
                 if (response.isSuccessful()) {
                     TaskDetailResponse data = response.body();
                     progressD.dismiss();
@@ -159,6 +160,7 @@ public class ConsultationActivity extends AppCompatActivity {
         RetrofitUtil.get().changerPourcentage(idTache,valeur).enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
+                progressD.dismiss();
                 if (response.isSuccessful()) {
                     Log.i("coucou", "");
                     progressD.dismiss();
@@ -205,6 +207,7 @@ public class ConsultationActivity extends AppCompatActivity {
         RetrofitUtil.get().deconnexion().enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
+                progressDeconnexion.dismiss();
                 if(response.isSuccessful()){
                     progressDeconnexion.dismiss();
                     Toast.makeText(ConsultationActivity.this, "Serveur recu", Toast.LENGTH_SHORT).show();

@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<SigninResponse> call, Response<SigninResponse> response) {
                 Log.i("ALLO","oK");
 
+                progressD.dismiss();
                 if(response.isSuccessful()) {
                     // si on recoit une reponse du serveur, premier truc : on ferme le dialogue
                     progressD.dismiss();
