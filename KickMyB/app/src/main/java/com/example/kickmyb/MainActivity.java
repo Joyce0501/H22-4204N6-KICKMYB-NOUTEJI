@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setTitle("Connexion");
+        setTitle(getString(R.string.connexion_name));
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();

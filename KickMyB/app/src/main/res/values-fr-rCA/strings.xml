@@ -9,6 +9,8 @@
     <string name="ok">Ok</string>
 
     //Main Activity
+    <string name="connexion_name">Connexion</string>
+    <string name="connexion_name_maj">CONNEXION</string>
     <string name="connexion_progress_introduction">Veuillez patienter s\'il vous plait </string>
     <string name="connexion_progress_message">L\'opération de connexion est en cours</string>
     <string name="connexion_welcome">Connectez vous à votre compte</string>
@@ -26,6 +28,7 @@
     <string name="inscription_errormessage_passwordconfirmation">Les mots de passe donnés ne correspondent pas</string>
 
     //Accueil Activity
+    <string name="menu_refresh">Rafraichissement de la page</string>
     <string name="an_update">Une mise à jour se produit</string>
     <string name="a_deconnexion">En cours de déconnexion</string>
     <string name="add_task">Créer une tâche</string>
@@ -44,6 +47,7 @@
 
 
     //Consultation Activity
+    <string name="consultation_welcome">Consultation de la tâche</string>
     <string name="consultation_updatepercentage">Mise à jour du pourcentage</string>
     <string name="consultation_detailsloading">Chargement des informations de la tâche</string>
     <string name="consultation_percentage">La valeur inscrite n\'est pas correcte</string>

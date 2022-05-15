@@ -131,7 +131,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:backgroundTint="@color/blue"
-            android:text="Connexion"
+            android:text="@string/connexion_name_maj"
             />
 
     </LinearLayout>

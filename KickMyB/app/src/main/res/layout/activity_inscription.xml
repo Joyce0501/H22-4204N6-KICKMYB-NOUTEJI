@@ -163,7 +163,7 @@
             android:id="@+id/retour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Connexion"
+            android:text="@string/connexion_name_maj"
             android:backgroundTint="@color/blue"
             android:layout_gravity="center"
             android:layout_margin="10dp"/>

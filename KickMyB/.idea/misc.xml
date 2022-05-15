@@ -29,6 +29,8 @@
         <entry key="..\:/Users/Paul/Desktop/H22-4204N6-KICKMYB-NOUTEJI/KickMyB/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.1155" />
         <entry key="..\:/Users/Paul/Desktop/H22-4204N6-KICKMYB-NOUTEJI/KickMyB/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1814814814814815" />
         <entry key="..\:/Users/Paul/Desktop/H22-4204N6-KICKMYB-NOUTEJI/KickMyB/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.14375" />
+        <entry key="..\:/Users/Paul/Desktop/H22-4204N6-KICKMYB-NOUTEJI/KickMyB/app/src/main/res/layout-land/activity_inscription.xml" value="0.1" />
+        <entry key="..\:/Users/Paul/Desktop/H22-4204N6-KICKMYB-NOUTEJI/KickMyB/app/src/main/res/layout-land/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/Paul/Desktop/H22-4204N6-KICKMYB-NOUTEJI/KickMyB/app/src/main/res/layout/activity_accueil.xml" value="0.1" />
         <entry key="..\:/Users/Paul/Desktop/H22-4204N6-KICKMYB-NOUTEJI/KickMyB/app/src/main/res/layout/activity_consultation.xml" value="0.12760416666666666" />
         <entry key="..\:/Users/Paul/Desktop/H22-4204N6-KICKMYB-NOUTEJI/KickMyB/app/src/main/res/layout/activity_creation.xml" value="0.12760416666666666" />
@@ -37,6 +39,7 @@
         <entry key="..\:/Users/Paul/Desktop/H22-4204N6-KICKMYB-NOUTEJI/KickMyB/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/Paul/Desktop/H22-4204N6-KICKMYB-NOUTEJI/KickMyB/app/src/main/res/layout/tache_item.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/Paul/Desktop/H22-4204N6-KICKMYB-NOUTEJI/KickMyB/app/src/main/res/menu/activity_main_drawer.xml" value="0.1" />
+        <entry key="..\:/Users/Paul/Desktop/H22-4204N6-KICKMYB-NOUTEJI/KickMyB/app/src/main/res/menu/refresh.xml" value="0.1" />
         <entry key="..\:/Users/Paul/Desktop/H22-4204N6-KICKMYB-NOUTEJI/KickMyB/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1814814814814815" />
         <entry key="..\:/Users/Paul/Desktop/H22-4204N6-KICKMYB-NOUTEJI/KickMyB/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.14375" />
       </map>

@@ -8,6 +8,8 @@
     <string name="ok">Ok</string>
 
     // Main Activity
+    <string name="connexion_name">Connection</string>
+    <string name="connexion_name_maj">CONNECTION</string>
     <string name="connexion_progress_introduction">Please wait</string>
     <string name="connexion_progress_message">The login operation is in progress</string>
     <string name="connexion_welcome">Connect you to your account</string>
@@ -25,6 +27,7 @@
     <string name="inscription_errormessage_passwordconfirmation">Password given don\'t correspond</string>
 
     //Accueil Activity
+    <string name="menu_refresh">Refresh</string>
     <string name="an_update">An update occurs</string>
     <string name="a_deconnexion">Log out in process</string>
     <string name="add_task">Add a task</string>
@@ -42,6 +45,7 @@
     <string name="creation_errormessage_datetaskempty">Please enter a deadline</string>
 
     //Consultation Activity
+    <string name="consultation_welcome">task\'s consultation</string>
     <string name="consultation_updatepercentage">Update of the percentage</string>
     <string name="consultation_detailsloading">Task\'s details are loading</string>
     <string name="consultation_percentage">The value doesn\'t fit with the condition of acceptance</string>
