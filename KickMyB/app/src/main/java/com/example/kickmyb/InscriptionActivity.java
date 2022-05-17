@@ -44,7 +44,6 @@ public class InscriptionActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(!(binding.confirmationpassword.getText().toString().equals(binding.inscriptionpassword.getText().toString())))
                 {
-                  //  progressD.dismiss();
                     binding.confirmationpassword.setError(getString(R.string.inscription_errormessage_passwordconfirmation));
                     binding.confirmationpassword.requestFocus();
                 }
@@ -86,6 +85,7 @@ public class InscriptionActivity extends AppCompatActivity {
                 }
                 else
                 {
+                    progressD.dismiss();
                     try {
                         String corpsErreur = response.errorBody().string();
                         Log.i("RETROFIT", "le code " + response.code());
@@ -125,8 +125,9 @@ public class InscriptionActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<SigninResponse> call, Throwable t) {
                 progressD.dismiss();
-                Log.i("ALLO","non");
                 showADialog();
+                Log.i("ALLO","non");
+
             }
         });
     }

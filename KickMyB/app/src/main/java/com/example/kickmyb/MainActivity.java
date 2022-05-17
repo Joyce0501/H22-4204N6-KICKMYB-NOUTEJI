@@ -112,9 +112,10 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(Call<SigninResponse> call, Throwable t) {
                 // si on recoit une reponse du serveur, premier truc : on ferme le dialogue
                 progressD.dismiss();
+                showADialog();
               //  Toast.makeText(MainActivity.this, "Ouch Serveur", Toast.LENGTH_SHORT).show();
                 Log.i("ALLO","non");
-                showADialog();
+
             }
         });
     }

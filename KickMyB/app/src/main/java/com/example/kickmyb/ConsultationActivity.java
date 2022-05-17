@@ -128,8 +128,8 @@ public class ConsultationActivity extends AppCompatActivity {
             public void onResponse(Call<TaskDetailResponse> call, Response<TaskDetailResponse> response) {
                 progressD.dismiss();
                 if (response.isSuccessful()) {
-                    TaskDetailResponse data = response.body();
                     progressD.dismiss();
+                    TaskDetailResponse data = response.body();
                     binding.editTache.setText(data.name);
 
                   //  binding.infoDate.setText("Date limite :" + data.deadline.toString());
@@ -144,8 +144,9 @@ public class ConsultationActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<TaskDetailResponse> call, Throwable t) {
                 progressD.dismiss();
-                Log.i("coucou", "");
                 showADialog();
+                Log.i("coucou", "");
+
             }
         });
     }
@@ -162,8 +163,8 @@ public class ConsultationActivity extends AppCompatActivity {
             public void onResponse(Call<String> call, Response<String> response) {
                 progressD.dismiss();
                 if (response.isSuccessful()) {
-                    Log.i("coucou", "");
                     progressD.dismiss();
+                    Log.i("coucou", "");
                     Intent retour = new Intent(ConsultationActivity.this,AccueilActivity.class);
                     startActivity(retour);
                 }
@@ -175,8 +176,9 @@ public class ConsultationActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<String> call, Throwable t) {
                 progressD.dismiss();
-                Log.i("ouch", "");
                 showADialog();
+                Log.i("ouch", "");
+
             }
         });
     }
@@ -216,7 +218,8 @@ public class ConsultationActivity extends AppCompatActivity {
                     startActivity(retour);
                 }
                 else{
-                    Toast.makeText(ConsultationActivity.this, "Ouch", Toast.LENGTH_SHORT).show();
+                    progressDeconnexion.dismiss();
+                    Toast.makeText(ConsultationActivity.this, "Echec", Toast.LENGTH_SHORT).show();
                 }
             }
 

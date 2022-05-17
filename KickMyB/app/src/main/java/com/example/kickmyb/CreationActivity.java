@@ -181,7 +181,8 @@ public class CreationActivity extends AppCompatActivity {
                     startActivity(retour);
                 }
                 else{
-                    Toast.makeText(CreationActivity.this, "Ouch", Toast.LENGTH_SHORT).show();
+                    progressDeconnexion.dismiss();
+                    Toast.makeText(CreationActivity.this, "Deconnexion non reussi", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -225,7 +226,7 @@ public class CreationActivity extends AppCompatActivity {
                         Toast.makeText(CreationActivity.this, "Serveur recu", Toast.LENGTH_SHORT).show();
                     }
                     else{
-                   //      progressD.dismiss();
+                         progressD.dismiss();
                         try {
                             String corpsErreur = response.errorBody().string();
                             Log.i("RETROFIT", "le code " + response.code());
@@ -269,8 +270,8 @@ public class CreationActivity extends AppCompatActivity {
                 @Override
                 public void onFailure(Call<String> call, Throwable t) {
                     progressD.dismiss();
-                     Toast.makeText(CreationActivity.this, "Ouch Serveur", Toast.LENGTH_SHORT).show();
                     showADialog();
+                     Toast.makeText(CreationActivity.this, "Ouch Serveur", Toast.LENGTH_SHORT).show();
                 }
             });
         } catch (ParseException e) {
